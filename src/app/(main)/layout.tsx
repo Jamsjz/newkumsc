@@ -3,6 +3,21 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/shared/Header";
 import { Toaster } from "@/components/ui/sonner";
+import { MathJaxContext } from "better-react-mathjax";
+const config = {
+  loader: { load: ["[tex]/html"] },
+  tex: {
+    packages: { "[+]": ["html"] },
+    inlineMath: [
+      ["$", "$"],
+      ["\\(", "\\)"],
+    ],
+    displayMath: [
+      ["$$", "$$"],
+      ["\\[", "\\]"],
+    ],
+  },
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,19 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          type="text/javascript"
-          id="MathJax-script"
-          async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-        ></script>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
+        <MathJaxContext config={config}>
+          <Header />
+          <main>{children}</main>
+        </MathJaxContext>
         <Toaster richColors />
       </body>
     </html>

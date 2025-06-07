@@ -1,5 +1,4 @@
-// src/app/contact/page.tsx
-"use client"; // This must be a client component to handle interaction
+"use client";
 
 import { useState } from "react";
 import { toast } from "sonner";

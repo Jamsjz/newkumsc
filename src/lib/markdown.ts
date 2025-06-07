@@ -9,7 +9,8 @@ export type FrontMatter = {
   title: string;
   date: string;
   slug: string;
-  [key: string]: any;
+  image?: string;
+  description: string;
 };
 
 /**

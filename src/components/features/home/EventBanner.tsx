@@ -50,7 +50,7 @@ export function EventBanner({ events = [] }: { events: FrontMatter[] }) {
             <Card className="rounded-none border-none">
               <CardContent className="relative p-0 h-[50vh] sm:h-[60vh] md:h-[75vh]">
                 <Image
-                  src={event.image}
+                  src={event.image || ""}
                   alt={event.title}
                   fill
                   priority={idx === 0}

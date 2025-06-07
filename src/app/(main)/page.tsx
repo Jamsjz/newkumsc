@@ -16,7 +16,7 @@ function ClubIntroduction() {
   return (
     <div className="flex flex-col items-start gap-4">
       <h1 className="text-balance text-left text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-        Kathmandu University Mathematics Student's Club
+        Kathmandu University Mathematics Student&apos;s Club
       </h1>
       <p className="max-w-2xl text-left text-muted-foreground">
         Kathmandu University Mathematics Students Club, shortly known as KUMSC,
