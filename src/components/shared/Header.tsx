@@ -3,29 +3,29 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-// Define navigation items in a constant for easy management
+// --- CHANGE IS HERE: Added "Committee" to the navigation items ---
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/events", label: "Events" },
+  { href: "/committee", label: "Committee" }, // New navigation link
   { href: "/notices", label: "Notices" },
   { href: "/contact", label: "Contact" },
 ];
+// --- END OF CHANGE ---
 
-/**
- * A reusable component for the expandable search bar UI.
- * It is only visible on medium screens and larger.
- */
 function ExpandableSearch() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -57,20 +57,21 @@ function ExpandableSearch() {
   );
 }
 
-/**
- * The main navigation bar component.
- * It handles the layout for desktop and triggers the mobile sheet.
- */
 export function Navbar() {
   return (
-    <nav className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-      {/* Left: Logo */}
+    <nav className="relative container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
       <Link href="/" className="flex items-center gap-2 font-bold">
         <Image src="/images/logo.svg" alt="KUMSC Logo" width={35} height={35} />
         <span className="hidden sm:inline">KUMSC</span>
       </Link>
 
-      {/* Center: Desktop Navigation Links */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-lg font-bold md:hidden"
+        aria-hidden="true"
+      >
+        KUMSC
+      </div>
+
       <div className="hidden items-center gap-4 md:flex">
         {navItems.map((item) => (
           <Button key={item.label} variant="ghost" asChild>
@@ -79,20 +80,23 @@ export function Navbar() {
         ))}
       </div>
 
-      {/* Right: Search Bar and Mobile Menu */}
       <div className="flex items-center gap-2">
         <ExpandableSearch />
-
-        {/* Mobile Menu Sheet */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <SheetHeader>
+              <SheetHeader className="text-left">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Select a page to navigate to or use the search bar to find
+                  content.
+                </SheetDescription>
                 <Link href="/" className="flex items-center gap-2 font-bold">
                   <Image
                     src="/images/logo.svg"
@@ -104,7 +108,6 @@ export function Navbar() {
                 </Link>
               </SheetHeader>
               <div className="mt-8 flex flex-col gap-4">
-                {/* Mobile Navigation Links */}
                 {navItems.map((item) => (
                   <Button
                     key={item.label}
@@ -116,7 +119,6 @@ export function Navbar() {
                   </Button>
                 ))}
               </div>
-              {/* Mobile Search Input */}
               <div className="relative mt-8">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
@@ -132,10 +134,6 @@ export function Navbar() {
   );
 }
 
-/**
- * The main header component that wraps the Navbar.
- * It provides the sticky positioning and background styling.
- */
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
