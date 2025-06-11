@@ -1,12 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import {
   Sheet,
   SheetContent,
@@ -15,6 +12,38 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ExpandableSearch } from "./ExpandableSearch";
+import { getAllFrontMatter } from "@/lib/markdown";
+
+interface ContentItem {
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  type: "event" | "notice";
+}
+
+export interface SearchProps {
+  events: ContentItem[];
+  notices: ContentItem[];
+}
+
+export async function getSearchParams(): Promise<SearchProps> {
+  const events = getAllFrontMatter("events").map((event) => ({
+    ...event,
+    type: "event" as const,
+  }));
+
+  const notices = getAllFrontMatter("notices").map((notice) => ({
+    ...notice,
+    type: "notice" as const,
+  }));
+
+  return {
+    events: events,
+    notices: notices,
+  };
+}
 
 // --- CHANGE IS HERE: Added "Committee" to the navigation items ---
 const navItems = [
@@ -26,38 +55,8 @@ const navItems = [
 ];
 // --- END OF CHANGE ---
 
-function ExpandableSearch() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <div className="hidden items-center justify-end md:flex">
-      <div
-        className={`flex items-center rounded-full border ${
-          isExpanded ? "border-primary" : "border-transparent"
-        } transition-all duration-300`}
-      >
-        <Input
-          type="search"
-          placeholder="Search..."
-          className={`h-9 transition-all duration-300 ease-in-out ${
-            isExpanded ? "w-48 scale-x-100 pr-8" : "w-0 scale-x-0"
-          } border-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0`}
-          onBlur={() => setIsExpanded(false)}
-        />
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <Search className="h-5 w-5" />
-        </Button>
-      </div>
-    </div>
-  );
-}
-
-export function Navbar() {
+export async function Navbar() {
+  const { events, notices } = await getSearchParams();
   return (
     <nav className="relative container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
       <Link href="/" className="flex items-center gap-2 font-bold">
@@ -81,7 +80,7 @@ export function Navbar() {
       </div>
 
       <div className="flex items-center gap-2">
-        <ExpandableSearch />
+        <ExpandableSearch events={events} notices={notices} />
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -118,13 +117,6 @@ export function Navbar() {
                     <Link href={item.href}>{item.label}</Link>
                   </Button>
                 ))}
-              </div>
-              <div className="relative mt-8">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  placeholder="Search events and notices"
-                  className="pl-10"
-                />
               </div>
             </SheetContent>
           </Sheet>

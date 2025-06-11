@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getAllFrontMatter } from "@/lib/markdown";
+import { TestimonialCarousel } from "@/components/features/home/Perspectives";
 
 function ClubIntroduction() {
   return (
@@ -158,6 +159,15 @@ export default function HomePage() {
       <section className="bg-muted/50 py-20 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <InfinityFeature />
+        </div>
+      </section>
+
+      <section className="w-full bg-muted/50 py-10">
+        <div className="px-4 sm:px-6 md:px-8">
+          <h1 className="text-center text-balance text-3xl font-extrabold tracking-tight">
+            Perspectives on Mathematics Students Club
+          </h1>
+          <TestimonialCarousel />
         </div>
       </section>
 
