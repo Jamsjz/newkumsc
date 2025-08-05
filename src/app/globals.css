@@ -81,6 +81,8 @@
   --footer-text: #6b8891;
   --footer-accent: #ff8c42;
   --footer-border: #454850;
+  --header-text: #f4f1de;
+  --header-text-hover: #ffd700;
 
   /* --- Chart Colors --- */
   --chart-1: oklch(0.646 0.222 41.116);

@@ -9,10 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'footer-bg': '#2f3033',
-        'footer-text': '#6b8891',
-        'footer-accent': '#ff8c42',
-        'footer-border': '#454850',
+        'footer-bg': 'var(--footer-bg)',
+        'footer-text': 'var(--footer-text)',
+        'footer-accent': 'var(--footer-accent)',
+        'footer-border': 'var(--footer-border)',
+        'header-text': 'var(--header-text)',
+        'header-text-hover': 'var(--header-text-hover)',
       },
     },
   },
