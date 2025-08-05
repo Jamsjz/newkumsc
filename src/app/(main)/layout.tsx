@@ -5,6 +5,8 @@ import Header from "@/components/shared/Header";
 import { Toaster } from "@/components/ui/sonner";
 import { MathJaxContext } from "better-react-mathjax";
 import Footer from "@/components/shared/Footer";
+import NoticeModal from "@/components/shared/NoticeModal";
+import { getAllFrontMatter } from "@/lib/markdown";
 const config = {
   loader: { load: ["[tex]/html"] },
   tex: {
@@ -35,11 +37,14 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const notices = getAllFrontMatter("notices")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
   return (
     <html lang="en">
       <body
@@ -51,6 +56,7 @@ export default function RootLayout({
         </MathJaxContext>
         <Footer />
         <Toaster richColors />
+        <NoticeModal notices={notices} />
       </body>
     </html>
   );
