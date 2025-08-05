@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, GraduationCap, Users } from "lucide-react";
 
 import { EventBanner } from "@/components/features/home/EventBanner";
+import Hero from "@/components/features/home/Hero"; // Import the Hero component
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -118,6 +119,9 @@ export default function HomePage() {
 
 	return (
 		<main className="flex flex-col gap-20 md:gap-32 animate__animated animate__fadeIn">
+			<section>
+				<Hero /> {/* Add the Hero component here */}
+			</section>
 			<section>
 				<EventBanner events={events} />
 			</section>
