@@ -4,7 +4,7 @@ import "../globals.css";
 import { Header } from "@/components/shared/Header";
 import { Toaster } from "@/components/ui/sonner";
 import { MathJaxContext } from "better-react-mathjax";
-import { Footer } from "@/components/shared/Footer";
+import Footer from "@/components/shared/Footer";
 const config = {
   loader: { load: ["[tex]/html"] },
   tex: {

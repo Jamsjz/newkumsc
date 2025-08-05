@@ -1,0 +1,98 @@
+{
+  "clubInfo": {
+    "name": "KU Math Club",
+    "fullName": "Kathmandu University Mathematics Club",
+    "department": "Department of Mathematics",
+    "university": "Kathmandu University",
+    "established": "2017",
+    "mission": "To foster a vibrant community of mathematical thinkers, innovators, and problem-solvers who contribute meaningfully to the advancement of mathematical knowledge and its applications in real-world scenarios.",
+    "vision": "To be the leading mathematics club in Nepal, recognized for producing outstanding mathematical minds who contribute to global scientific advancement and social progress.",
+    "contact": {
+      "email": "mathclub@ku.edu.np",
+      "phone": "+977-11-490909",
+      "address": {
+        "line1": "Department of Mathematics",
+        "line2": "Kathmandu University",
+        "line3": "Dhulikhel, Kavre, Nepal"
+      }
+    },
+    "socialMedia": {
+      "facebook": "#",
+      "instagram": "#",
+      "linkedin": "#"
+    }
+  },
+  "stats": {
+    "members": 150,
+    "events": 45,
+    "projects": 12,
+    "years": 8,
+    "awards": 25,
+    "alumni": 500,
+    "bismayaIssues": 8,
+    "successRate": 95
+  },
+  "values": [
+    {
+      "title": "Excellence",
+      "description": "Pursuing the highest standards in mathematical education and research",
+      "icon": "Trophy",
+      "color": "bg-[#ff8c42]"
+    },
+    {
+      "title": "Collaboration",
+      "description": "Working together to solve complex problems and share knowledge",
+      "icon": "Users",
+      "color": "bg-[#264653]"
+    },
+    {
+      "title": "Innovation",
+      "description": "Embracing new methods and technologies in mathematical exploration",
+      "icon": "Target",
+      "color": "bg-[#c41e3a]"
+    },
+    {
+      "title": "Community",
+      "description": "Building strong connections within and beyond the university",
+      "icon": "BookOpen",
+      "color": "bg-[#ffd700]"
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2017",
+      "title": "Club Foundation",
+      "description": "KU Mathematics Club was established by passionate mathematics students.",
+      "icon": "BookOpen",
+      "color": "bg-[#ff8c42]"
+    },
+    {
+      "year": "2019",
+      "title": "First Bismaya Issue",
+      "description": "Launched our flagship mathematical magazine with student contributions.",
+      "icon": "BookOpen",
+      "color": "bg-[#264653]"
+    },
+    {
+      "year": "2021",
+      "title": "National Recognition",
+      "description": "Won first place in the National Mathematical Modeling Competition.",
+      "icon": "Trophy",
+      "color": "bg-[#c41e3a]"
+    },
+    {
+      "year": "2023",
+      "title": "Community Outreach",
+      "description": "Expanded our impact through mathematical literacy programs.",
+      "icon": "Users",
+      "color": "bg-[#ffd700]"
+    },
+    {
+      "year": "2025",
+      "title": "Future Vision",
+      "description": "Continuing to inspire mathematical excellence and innovation.",
+      "icon": "Target",
+      "color": "bg-[#ff8c42]"
+    }
+  ]
+}

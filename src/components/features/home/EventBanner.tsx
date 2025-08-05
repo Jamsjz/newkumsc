@@ -4,6 +4,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
+import Link from "next/link";
+
 import {
   Carousel,
   CarouselContent,
@@ -61,9 +63,11 @@ export function EventBanner({ events = [] }: { events: FrontMatter[] }) {
                   {/* Container with responsive max-width to control line length */}
                   <div className="max-w-sm sm:max-w-md md:max-w-2xl">
                     {/* Responsive title font size */}
-                    <h2 className="font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                      {event.title}
-                    </h2>
+                    <Link href={`/events/${event.slug}`}>
+                      <h2 className="font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                        {event.title}
+                      </h2>
+                    </Link>
                     {/* Responsive description font size and top margin */}
                     <p className="mt-2 text-sm text-gray-200 sm:text-base md:text-lg">
                       {event.description}
