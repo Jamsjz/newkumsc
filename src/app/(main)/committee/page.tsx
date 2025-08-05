@@ -1,115 +1,229 @@
-// src/app/committee/page.tsx
+import React from 'react';
+import { Mail, Linkedin, Calendar, Users, Award, BookOpen } from 'lucide-react';
+import leadershipData from '@/data/leadership.json';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
-import Image from "next/image";
-import Link from "next/link";
-// Corrected: Using the new, non-deprecated icon names
-import {
-  GithubIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  MailIcon,
-} from "lucide-react";
+const Leadership: React.FC = () => {
+  // const [activeYear, setActiveYear] = useState('2025'); // Future feature for year filtering
 
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { members, Member } from "@/lib/data";
-
-function MemberCard({ member }: { member: Member }) {
   return (
-    <Card className="flex flex-col overflow-hidden text-center transition-all duration-300 hover:scale-105 hover:shadow-xl">
-      <CardHeader className="p-0">
-        <div className="relative aspect-square w-full">
-          <Image
-            src={member.image}
-            alt={`Photo of ${member.name}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              Leadership
+            </h1>
+            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
+              Meet the dedicated individuals who guide our club&apos;s vision, manage our initiatives, and inspire mathematical excellence.
+            </p>
+          </div>
         </div>
-      </CardHeader>
-      <CardContent className="flex-grow p-4">
-        <CardTitle className="text-lg">{member.name}</CardTitle>
-        <CardDescription className="mt-1 text-primary">
-          {member.role}
-        </CardDescription>
-        <Badge variant="secondary" className="mt-2">
-          {member.major}
-        </Badge>
-      </CardContent>
-      <CardFooter className="flex justify-center gap-3 p-4 pt-0">
-        <Link
-          href={`mailto:${member.email}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-muted-foreground transition-colors hover:text-primary"
-        >
-          {/* Corrected: Using the new icon component */}
-          <MailIcon className="h-5 w-5" />
-          <span className="sr-only">Email</span>
-        </Link>
-        {member.socials?.linkedin && (
-          <Link
-            href={member.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-primary"
-          >
-            <LinkedinIcon className="h-5 w-5" />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
-        )}
-        {member.socials?.github && (
-          <Link
-            href={member.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-primary"
-          >
-            <GithubIcon className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-        )}
-        {member.socials?.instagram && (
-          <Link
-            href={member.socials.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-primary"
-          >
-            <InstagramIcon className="h-5 w-5" />
-            <span className="sr-only">Instagram</span>
-          </Link>
-        )}
-      </CardFooter>
-    </Card>
-  );
-}
+      </section>
 
-export default function CommitteePage() {
-  return (
-    <main className="container mx-auto px-4 py-12 sm:px-6 md:px-8">
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Meet Our Committee
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          The driving force behind KUMSC, dedicated to fostering a vibrant
-          mathematical community.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {members.map((member) => (
-          <MemberCard key={member.email} member={member} />
-        ))}
-      </div>
-    </main>
+      {/* Current Executive Committee */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Executive Committee 2025
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-3xl mx-auto">
+              Our current leadership team brings diverse skills and perspectives to guide the club&apos;s mission and activities.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {leadershipData.executiveCommittee['2025'].map((member, index) => (
+              <div key={index} className="bg-[#f4f1de] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <div className="relative">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={400}
+                    height={400}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className={`absolute top-4 left-4 ${member.color} text-white px-3 py-1 rounded-full text-sm font-medium`}>
+                    {member.position}
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#2f3033] mb-2">{member.name}</h3>
+                  <div className="text-[#6b8891] mb-4">
+                    <div className="font-medium">{member.year} • {member.major}</div>
+                  </div>
+                  
+                  <p className="text-[#6b8891] text-sm leading-relaxed mb-4">
+                    {member.bio}
+                  </p>
+
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-[#2f3033] text-sm mb-2">Key Achievements</h4>
+                    <ul className="text-xs text-[#6b8891] space-y-1">
+                      {member.achievements.map((achievement, i) => (
+                        <li key={i}>• {achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <a 
+                      href={`mailto:${member.email}`}
+                      className="flex items-center justify-center w-10 h-10 bg-white rounded-full text-[#264653] hover:bg-[#264653] hover:text-white transition-all duration-200"
+                    >
+                      <Mail className="h-4 w-4" />
+                    </a>
+                    <a 
+                      href={member.linkedin}
+                      className="flex items-center justify-center w-10 h-10 bg-white rounded-full text-[#264653] hover:bg-[#264653] hover:text-white transition-all duration-200"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Advisory Board */}
+      <section className="py-16 bg-[#f4f1de]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Advisory Board
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-3xl mx-auto">
+              Experienced faculty members who provide guidance, mentorship, and strategic direction for our club&apos;s growth.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {leadershipData.advisoryBoard.map((advisor, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                <Image
+                  src={advisor.image}
+                  alt={advisor.name}
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                />
+                <h3 className="text-xl font-bold text-[#2f3033] mb-2">{advisor.name}</h3>
+                <div className="text-[#ff8c42] font-semibold mb-1">{advisor.position}</div>
+                <div className="text-[#6b8891] text-sm mb-3">{advisor.department}</div>
+                <div className="text-[#264653] font-medium text-sm mb-4">{advisor.specialization}</div>
+                <p className="text-[#6b8891] text-sm leading-relaxed">{advisor.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Organizational Structure */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Organizational Structure
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-3xl mx-auto">
+              Understanding our club&apos;s hierarchy and the responsibilities of each position.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#ff8c42] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2f3033] mb-2">Executive Committee</h3>
+              <p className="text-[#6b8891] text-sm">Strategic planning and overall club management</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#264653] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2f3033] mb-2">Academic Team</h3>
+              <p className="text-[#6b8891] text-sm">Tutoring, workshops, and academic support</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#c41e3a] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Calendar className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2f3033] mb-2">Event Team</h3>
+              <p className="text-[#6b8891] text-sm">Planning and executing club activities</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#ffd700] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-[#2f3033]" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2f3033] mb-2">Special Committees</h3>
+              <p className="text-[#6b8891] text-sm">Publications, outreach, and special projects</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Past Leaders */}
+      <section className="py-16 bg-[#f4f1de]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Alumni Leaders
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-3xl mx-auto">
+              Honoring former leaders who laid the foundation for our club&apos;s success and continue to inspire us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {leadershipData.pastLeaders.map((leader, index) => (
+              <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-4">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 rounded-full object-cover shadow-lg"
+                  />
+                  <div>
+                    <h3 className="text-lg font-bold text-[#2f3033]">{leader.name}</h3>
+                    <div className="text-[#ff8c42] font-semibold text-sm">{leader.position}</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[#6b8891] text-sm">Currently: </span>
+                    <span className="text-[#2f3033] font-medium text-sm">{leader.current}</span>
+                  </div>
+                  <div>
+                    <span className="text-[#6b8891] text-sm">Legacy: </span>
+                    <span className="text-[#264653] font-medium text-sm">{leader.achievement}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="bg-[#264653] hover:bg-[#1b3640] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+              View Complete Alumni Directory
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default Leadership;
