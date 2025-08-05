@@ -47,7 +47,7 @@ export default function RootLayout({
       >
         <MathJaxContext config={config}>
           <Header />
-          <main>{children}</main>
+          <main className="pt-16">{children}</main>
         </MathJaxContext>
         <Footer />
         <Toaster richColors />
