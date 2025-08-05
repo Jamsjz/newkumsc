@@ -118,7 +118,7 @@ export default function HomePage() {
 	const events = getAllFrontMatter("events");
 
 	return (
-		<main className="flex flex-col gap-15 md:gap-16 animate__animated animate__fadeIn">
+		<main className="flex flex-col gap-10 mt-30 md:gap-16 animate__animated animate__fadeIn">
 			<section>
 				<Hero /> {/* Add the Hero component here */}
 			</section>
