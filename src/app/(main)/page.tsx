@@ -4,6 +4,7 @@ import { ArrowRight, BookOpen, GraduationCap, Users } from "lucide-react";
 
 import { EventBanner } from "@/components/features/home/EventBanner";
 import Hero from "@/components/features/home/Hero"; // Import the Hero component
+import QuickStats from "@/components/features/home/QuickStats"; // Import the QuickStats component
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -121,6 +122,9 @@ export default function HomePage() {
 		<main className="flex flex-col gap-10 mt-30 md:gap-16 animate__animated animate__fadeIn">
 			<section>
 				<Hero /> {/* Add the Hero component here */}
+			</section>
+			<section>
+				<QuickStats />
 			</section>
 			<section>
 				<h2 className="text-3xl font-bold tracking-tight text-center mb-8">Recent Events</h2>
