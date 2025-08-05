@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Users, Calendar, Trophy, BookOpen } from 'lucide-react';
 import clubData from '@/data/clubInfo.json';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -49,7 +50,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
@@ -66,12 +67,16 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Join Our Community
-              </Button>
-              <Button variant="outline" className="border-2 border-[#264653] text-[#264653] hover:bg-[#264653] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-                Explore Events
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  Join Our Community
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button variant="outline" className="border-2 border-[#264653] text-[#264653] hover:bg-[#264653] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+                  Explore Events
+                </Button>
+              </Link>
             </div>
           </div>
 
