@@ -24,7 +24,7 @@ const Header: React.FC = () => {
     { name: 'Our Story', path: '/our-story' },
     { name: 'Events', path: '/events' },
     { name: 'Our Work', path: '/our-work' },
-    { name: 'Leadership', path: '/leadership' },
+    { name: 'Committee', path: '/committee' },
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Get Involved', path: '/get-involved' },
   ];
