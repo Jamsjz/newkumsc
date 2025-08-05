@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Linkedin, Calendar, Users, Award, BookOpen } from 'lucide-react';
 import leadershipData from '@/data/leadership.json';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+
 
 const Leadership: React.FC = () => {
   // const [activeYear, setActiveYear] = useState('2025'); // Future feature for year filtering
@@ -213,12 +213,6 @@ const Leadership: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button className="bg-[#264653] hover:bg-[#1b3640] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-              View Complete Alumni Directory
-            </Button>
           </div>
         </div>
       </section>
