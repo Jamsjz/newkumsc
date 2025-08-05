@@ -3,6 +3,7 @@ import { BookOpen, Users, Trophy, Target, ArrowRight } from 'lucide-react';
 import clubData from '@/data/clubInfo.json';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const OurStory: React.FC = () => {
   const iconMap = {
@@ -15,13 +16,13 @@ const OurStory: React.FC = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-footer-bg to-our-story-dark-blue text-white py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Our Story
             </h1>
-            <p className="text-xl sm:text-2xl text-footer-text leading-relaxed">
+            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
               Eight years of mathematical excellence, community building, and inspiring the next generation of mathematicians at Kathmandu University.
             </p>
           </div>
@@ -33,22 +34,22 @@ const OurStory: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-footer-bg mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-footer-text leading-relaxed mb-6">
+              <p className="text-lg text-[#6b8891] leading-relaxed mb-6">
                 {clubData.clubInfo.mission}
               </p>
-              <p className="text-lg text-footer-text leading-relaxed">
+              <p className="text-lg text-[#6b8891] leading-relaxed">
                 We strive to make mathematics accessible, engaging, and relevant to students while maintaining the highest standards of academic excellence and research integrity.
               </p>
             </div>
-            <div className="bg-our-story-light-bg p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-footer-bg mb-4">Our Vision</h3>
-              <p className="text-footer-text leading-relaxed mb-4">
+            <div className="bg-[#f4f1de] p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold text-[#2f3033] mb-4">Our Vision</h3>
+              <p className="text-[#6b8891] leading-relaxed mb-4">
                 {clubData.clubInfo.vision}
               </p>
-              <div className="flex items-center space-x-2 text-footer-accent font-semibold">
+              <div className="flex items-center space-x-2 text-[#ff8c42] font-semibold">
                 <span>Shaping the future of mathematics</span>
                 <ArrowRight className="h-4 w-4" />
               </div>
@@ -58,20 +59,20 @@ const OurStory: React.FC = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-our-story-light-bg">
+      <section className="py-16 bg-[#f4f1de]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-footer-bg mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
               Our Journey
             </h2>
-            <p className="text-lg text-footer-text max-w-2xl mx-auto">
+            <p className="text-lg text-[#6b8891] max-w-2xl mx-auto">
               Key milestones that shaped our club&apos;s growth and impact
             </p>
           </div>
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-0.5 w-1 bg-footer-accent h-full hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-0.5 w-1 bg-[#ff8c42] h-full hidden lg:block"></div>
 
             <div className="space-y-12">
               {clubData.milestones.map((milestone, index) => {
@@ -84,16 +85,16 @@ const OurStory: React.FC = () => {
                           <div className={`${milestone.color} w-12 h-12 rounded-xl flex items-center justify-center`}>
                             <IconComponent className="h-6 w-6 text-white" />
                           </div>
-                          <div className="text-2xl font-bold text-footer-accent">{milestone.year}</div>
+                          <div className="text-2xl font-bold text-[#ff8c42]">{milestone.year}</div>
                         </div>
-                        <h3 className="text-xl font-bold text-footer-bg mb-2">{milestone.title}</h3>
-                        <p className="text-footer-text leading-relaxed">{milestone.description}</p>
+                        <h3 className="text-xl font-bold text-[#2f3033] mb-2">{milestone.title}</h3>
+                        <p className="text-[#6b8891] leading-relaxed">{milestone.description}</p>
                       </div>
                     </div>
 
                     {/* Timeline Dot */}
                     <div className="hidden lg:flex w-2/12 justify-center">
-                      <div className="w-4 h-4 bg-footer-accent rounded-full border-4 border-white shadow-lg"></div>
+                      <div className="w-4 h-4 bg-[#ff8c42] rounded-full border-4 border-white shadow-lg"></div>
                     </div>
 
                     <div className="hidden lg:block w-5/12"></div>
@@ -109,10 +110,10 @@ const OurStory: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-footer-bg mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
               Our Core Values
             </h2>
-            <p className="text-lg text-footer-text max-w-2xl mx-auto">
+            <p className="text-lg text-[#6b8891] max-w-2xl mx-auto">
               The principles that guide our actions and decisions
             </p>
           </div>
@@ -125,8 +126,8 @@ const OurStory: React.FC = () => {
                   <div className={`${value.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-footer-bg mb-3">{value.title}</h3>
-                  <p className="text-footer-text leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-bold text-[#2f3033] mb-3">{value.title}</h3>
+                  <p className="text-[#6b8891] leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
@@ -135,7 +136,7 @@ const OurStory: React.FC = () => {
       </section>
 
       {/* Department Connection */}
-      <section className="py-16 bg-our-story-light-bg">
+      <section className="py-16 bg-[#f4f1de]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -148,19 +149,21 @@ const OurStory: React.FC = () => {
               />
             </div>
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-footer-bg mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-6">
                 Connected to Excellence
               </h2>
-              <p className="text-lg text-footer-text leading-relaxed mb-6">
+              <p className="text-lg text-[#6b8891] leading-relaxed mb-6">
                 As part of {clubData.clubInfo.university}&apos;s prestigious {clubData.clubInfo.department}, we benefit from world-class faculty, cutting-edge research opportunities, and a tradition of academic excellence that spans decades.
               </p>
-              <p className="text-lg text-footer-text leading-relaxed mb-6">
+              <p className="text-lg text-[#6b8891] leading-relaxed mb-6">
                 Our club serves as a bridge between academic learning and practical application, providing students with opportunities to engage with mathematics beyond the classroom.
               </p>
-              <Button className="bg-our-story-dark-blue hover:bg-our-story-darker-blue text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
-                <span>Visit KU Mathematics Department</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-[#264653] hover:bg-[#1b3640] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
+                  <span>Visit KU Mathematics Department</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
