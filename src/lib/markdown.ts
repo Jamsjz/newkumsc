@@ -22,6 +22,7 @@ export type FrontMatter = {
   price?: string;
   prerequisites?: string;
   materials?: string[];
+  formLink?: string;
 };
 
 /**

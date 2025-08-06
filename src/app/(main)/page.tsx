@@ -18,7 +18,8 @@ import CallToAction from "@/components/features/home/CallToAction";
 
 export default function HomePage() {
 	const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-	const events = allEvents.slice(0, 4).map(event => ({
+	const futureEvents = allEvents.filter(event => new Date(event.date).getTime() >= new Date().setHours(0,0,0,0));
+	const events = futureEvents.slice(0, 4).map(event => ({
 		...event,
 		time: event.time || "N/A", // Provide default or ensure data
 		location: event.location || "N/A", // Provide default or ensure data
@@ -32,6 +33,7 @@ export default function HomePage() {
 		price: event.price || "Free", // Provide default or ensure data
 		prerequisites: event.prerequisites || "N/A", // Provide default or ensure data
 		materials: event.materials || [], // Provide default or ensure data
+		formLink: event.formLink || "", // Provide default or ensure data
 	}));
 
 	return (

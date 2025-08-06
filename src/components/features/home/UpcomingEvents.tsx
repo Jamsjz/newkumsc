@@ -23,6 +23,7 @@ interface EventItem {
   price: string;
   prerequisites: string;
   materials: string[];
+  formLink?: string;
 }
 
 type UpcomingEventsProps = {
@@ -141,9 +142,11 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     </span>
                   </div>
 
-                  <Button className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
-                    <span>Register Now</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Button asChild className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
+                    <Link href={events[activeEvent].formLink || "/contact"}>
+                      <span>Register Now</span>
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </div>
               </div>

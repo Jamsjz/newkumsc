@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Clock, MapPin, Users, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
@@ -39,6 +41,8 @@ export default async function SingleEventPage({ params }: PageProps) {
     notFound();
   }
 
+  const isFutureEvent = new Date(post.fm.date).getTime() >= new Date().setHours(0,0,0,0);
+
   const htmlContent = await unified()
     .use(remarkParse)
     .use(remarkHtml)
@@ -61,7 +65,34 @@ export default async function SingleEventPage({ params }: PageProps) {
               })}
             </span>
           </div>
+          {post.fm.time && (
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span>{post.fm.time}</span>
+            </div>
+          )}
+          {post.fm.location && (
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              <span>{post.fm.location}</span>
+            </div>
+          )}
+          {post.fm.attendees && post.fm.maxAttendees && (
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4" />
+              <span>{post.fm.attendees}/{post.fm.maxAttendees} attendees</span>
+            </div>
+          )}
         </div>
+        {isFutureEvent && post.fm.registrationOpen && post.fm.formLink && (
+          <div className="mt-8 text-center">
+            <Button asChild size="lg" className="bg-[#ff8c42] hover:bg-[#e67220] text-white">
+              <Link href={post.fm.formLink} target="_blank" rel="noopener noreferrer">
+                Register Now <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        )}
       </header>
 
       <article>
