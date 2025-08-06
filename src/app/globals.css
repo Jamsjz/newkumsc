@@ -93,6 +93,10 @@
   --our-story-text-dark-gray: #4a6670;
   --our-story-text-medium-gray: #454850;
 
+  /* --- CallToAction Colors --- */
+  --cta-orange-hover: #e67220;
+  --cta-dark-blue-hover: #1b3640;
+
   /* --- Chart Colors --- */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);

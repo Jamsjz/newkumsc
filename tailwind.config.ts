@@ -22,6 +22,8 @@ const config: Config = {
         'our-story-darker-blue': 'var(--our-story-darker-blue)',
         'our-story-text-dark-gray': 'var(--our-story-text-dark-gray)',
         'our-story-text-medium-gray': 'var(--our-story-text-medium-gray)',
+        'cta-orange-hover': 'var(--cta-orange-hover)',
+        'cta-dark-blue-hover': 'var(--cta-dark-blue-hover)',
       },
     },
   },

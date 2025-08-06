@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 
 import { getAllFrontMatter } from "@/lib/markdown";
 import { TestimonialCarousel } from "@/components/features/home/Perspectives";
+import CallToAction from "@/components/features/home/CallToAction";
 
 export default function HomePage() {
 	const events = getAllFrontMatter("events");
@@ -90,6 +91,7 @@ export default function HomePage() {
 					</Button>
 				</div>
 			</section>
+			<CallToAction />
 		</main>
 	);
 }
