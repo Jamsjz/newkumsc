@@ -73,7 +73,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
             <div className="mt-6 flex justify-center gap-4">
               <EventCalendarModal events={initialEvents} />
               <Link href="/contact">
-                <Button variant="outline" className="flex items-center gap-2">
+                <Button className="flex items-center gap-2 bg-[#ff8c42] hover:bg-[#e67220]">
                   <Mail className="h-5 w-5" />
                   Suggest an Event
                 </Button>
