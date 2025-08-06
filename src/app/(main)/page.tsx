@@ -8,6 +8,7 @@ import ClubIntroduction from "@/components/features/home/ClubIntroduction";
 import ClubFeatures from "@/components/features/home/ClubFeatures";
 import InfinityFeature from "@/components/features/home/InfinityFeature";
 import SponsorsSection from "@/components/features/home/SponsorsSection";
+import UpcomingEvents from "@/components/features/home/UpcomingEvents";
 
 
 
@@ -16,7 +17,22 @@ import { TestimonialCarousel } from "@/components/features/home/Perspectives";
 import CallToAction from "@/components/features/home/CallToAction";
 
 export default function HomePage() {
-	const events = getAllFrontMatter("events");
+	const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+	const events = allEvents.slice(0, 4).map(event => ({
+		...event,
+		time: event.time || "N/A", // Provide default or ensure data
+		location: event.location || "N/A", // Provide default or ensure data
+		category: event.category || "all", // Provide default or ensure data
+		attendees: event.attendees || 0, // Provide default or ensure data
+		maxAttendees: event.maxAttendees || 0, // Provide default or ensure data
+		speaker: event.speaker || "N/A", // Provide default or ensure data
+		featured: event.featured || false, // Provide default or ensure data
+		image: event.image || "", // Provide default or ensure data
+		registrationOpen: event.registrationOpen || false, // Provide default or ensure data
+		price: event.price || "Free", // Provide default or ensure data
+		prerequisites: event.prerequisites || "N/A", // Provide default or ensure data
+		materials: event.materials || [], // Provide default or ensure data
+	}));
 
 	return (
 		<main className="flex flex-col gap-10 md:gap-16 animate__animated animate__fadeIn">
@@ -71,6 +87,8 @@ export default function HomePage() {
 			</section>
 
 			<SponsorsSection />
+
+			<UpcomingEvents events={events} />
 
 			<section className="w-full bg-muted/50 py-10">
 				<div className="px-4 sm:px-6 md:px-8">

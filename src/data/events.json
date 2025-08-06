@@ -1,0 +1,9 @@
+{
+  "categories": [
+    { "id": "all", "name": "All Events", "color": "bg-[#6b8891]" },
+    { "id": "workshop", "name": "Workshops", "color": "bg-[#ff8c42]" },
+    { "id": "lecture", "name": "Lectures", "color": "bg-[#264653]" },
+    { "id": "competition", "name": "Competitions", "color": "bg-[#c41e3a]" },
+    { "id": "social", "name": "Social Events", "color": "bg-[#ffd700]" }
+  ]
+}

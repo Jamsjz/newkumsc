@@ -11,6 +11,17 @@ export type FrontMatter = {
   slug: string;
   image?: string;
   description: string;
+  time?: string;
+  location?: string;
+  category?: string;
+  attendees?: number;
+  maxAttendees?: number;
+  speaker?: string;
+  featured?: boolean;
+  registrationOpen?: boolean;
+  price?: string;
+  prerequisites?: string;
+  materials?: string[];
 };
 
 /**

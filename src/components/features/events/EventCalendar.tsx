@@ -32,7 +32,7 @@ export function EventCalendar({ events }: EventCalendarProps) {
   const eventsByDate = React.useMemo(() => {
     const map = new Map<string, FrontMatter[]>();
     events.forEach((event) => {
-      const date = safeParseDate(event.date as string);
+      const date = safeParseDate(String(event.date));
       if (date) {
         const dateString = format(date, "yyyy-MM-dd");
         if (!map.has(dateString)) {
