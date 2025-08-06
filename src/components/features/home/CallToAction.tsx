@@ -97,7 +97,7 @@ const CallToAction: React.FC = () => {
                   Join our community and gain access to all club activities, resources, and networking opportunities.
                 </p>
                 <Button className="w-full bg-[#ff8c42] hover:bg-cta-orange-hover text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2 group">
-                  <span>Apply for Membership</span>
+                  <span>Contact Us</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

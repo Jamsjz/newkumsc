@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const InfinityFeature = () => {
   return (
@@ -30,6 +33,12 @@ const InfinityFeature = () => {
           creativity, the joy of discovery, and the endless possibilities that
           lie ahead. Infinity awaits – are you ready to explore?
         </p>
+        <Button asChild size="lg" className="mt-4">
+          <Link href="/infinity">
+            Learn More
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+
 
 import { EventBanner } from "@/components/features/home/EventBanner";
 import Hero from "@/components/features/home/Hero";
@@ -8,7 +8,7 @@ import ClubIntroduction from "@/components/features/home/ClubIntroduction";
 import ClubFeatures from "@/components/features/home/ClubFeatures";
 import InfinityFeature from "@/components/features/home/InfinityFeature";
 
-import { Button } from "@/components/ui/button";
+
 
 import { getAllFrontMatter } from "@/lib/markdown";
 import { TestimonialCarousel } from "@/components/features/home/Perspectives";
@@ -78,19 +78,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="py-20">
-				<div className="container mx-auto text-center">
-					<h2 className="text-3xl font-bold tracking-tight">
-						Join Our Community
-					</h2>
-					<p className="mt-2 text-muted-foreground">
-						Become a part of a vibrant group of mathematics enthusiasts.
-					</p>
-					<Button asChild size="lg" className="mt-8">
-						<Link href="/contact">Become a Member</Link>
-					</Button>
-				</div>
-			</section>
+			
 			<CallToAction />
 		</main>
 	);
