@@ -73,10 +73,12 @@ export function ExpandableSearch({ events, notices, onExpandChange }: SearchProp
         searchContainerRef.current &&
         !searchContainerRef.current.contains(event.target as Node)
       ) {
-        setIsExpanded(false);
-        setQuery("");
-        if (onExpandChange) {
-          onExpandChange(false); // Call the callback when collapsing
+        if (isExpanded) { // Only collapse if currently expanded
+          setIsExpanded(false);
+          setQuery("");
+          if (onExpandChange) {
+            onExpandChange(false); // Call the callback when collapsing
+          }
         }
       }
     }
@@ -84,7 +86,7 @@ export function ExpandableSearch({ events, notices, onExpandChange }: SearchProp
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onExpandChange]);
+  }, [isExpanded, onExpandChange]); // Add isExpanded to dependencies
 
   const handleResultClick = () => {
     setIsExpanded(false);

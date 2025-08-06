@@ -104,7 +104,12 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
               <ExpandableSearch 
                 events={searchData.events} 
                 notices={searchData.notices} 
-                onExpandChange={setIsSearchExpanded} // Pass callback to update parent state
+                onExpandChange={(expanded) => {
+                  setIsSearchExpanded(expanded);
+                  if (expanded) {
+                    setIsMenuOpen(false); // Close mobile menu when search expands
+                  }
+                }} // Pass callback to update parent state
               />
             </div>
             {!isSearchExpanded && (
