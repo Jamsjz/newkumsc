@@ -132,7 +132,7 @@ const OurStory: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/images/Kathmandu_University.jpg"
                 alt="Kathmandu University Campus"
                 width={800}
                 height={600}
