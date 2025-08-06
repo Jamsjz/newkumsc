@@ -21,8 +21,8 @@ const SponsorsSection: React.FC<SponsorsSectionProps> = ({
 }) => {
   // Filter sponsors based on tier
   const filteredSponsors = sponsorsData.sponsors.filter(
-    (sponsor) => tierFilter.includes(sponsor.tier)
-  );
+    (sponsor) => (tierFilter.includes(sponsor.tier) && (sponsor.tier === 'platinum' || sponsor.tier === 'gold'))
+  ).slice(0, 6);
 
   return (
     <section className={`py-12 ${compact ? 'bg-white' : 'bg-[#f4f1de]'}`}>
