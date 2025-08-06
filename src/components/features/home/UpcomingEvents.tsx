@@ -64,7 +64,11 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
   };
 
   if (events.length === 0) {
-    return null; // Don't render if no events
+    return (
+      <div className="text-center py-10">
+        <p className="text-lg text-[#6b8891]">No upcoming events at the moment. Check back soon!</p>
+      </div>
+    );
   }
 
   return (
