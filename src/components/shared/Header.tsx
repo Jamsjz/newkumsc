@@ -28,6 +28,7 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({ searchData }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false); // New state for search expansion
   const currentPath = usePathname();
 
   useEffect(() => {
@@ -64,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
           <Link 
             href="/"
             onClick={handleNavClick}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200"
+            className={`flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200 ${isSearchExpanded ? 'hidden' : ''}`}
           >
             <div className="relative">
               <Calculator className="h-8 w-8 text-[#ff8c42]" />
@@ -97,14 +98,23 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
             <ExpandableSearch events={searchData.events} notices={searchData.notices} />
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-[#f4f1de] hover:text-[#ff8c42] transition-colors duration-200"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+          {/* Mobile Search and Menu */}
+          <div className="lg:hidden flex items-center">
+            <div className={`${isSearchExpanded ? 'w-full' : 'w-auto'} transition-all duration-300`}>
+              <ExpandableSearch 
+                events={searchData.events} 
+                notices={searchData.notices} 
+                onExpandChange={setIsSearchExpanded} // Pass callback to update parent state
+              />
+            </div>
+            {!isSearchExpanded && (
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-[#f4f1de] hover:text-[#ff8c42] transition-colors duration-200 ml-4"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            )}
           </div>
         </div>
 
@@ -125,9 +135,6 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
                   {item.name}
                 </Link>
               ))}
-              <div className="px-3 py-2">
-                <ExpandableSearch events={searchData.events} notices={searchData.notices} />
-              </div>
             </div>
           </div>
         )}

@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 export interface SearchProps {
   events: ContentItem[];
   notices: ContentItem[];
+  onExpandChange?: (isExpanded: boolean) => void; // New prop
 }
 
 interface ContentItem {
@@ -22,7 +23,7 @@ interface ContentItem {
   type: "event" | "notice";
 }
 
-export function ExpandableSearch({ events, notices }: SearchProps) {
+export function ExpandableSearch({ events, notices, onExpandChange }: SearchProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const [allContent, setAllContent] = useState<ContentItem[]>([]);
@@ -54,6 +55,9 @@ export function ExpandableSearch({ events, notices }: SearchProps) {
   const handleToggleSearch = () => {
     const newIsExpanded = !isExpanded;
     setIsExpanded(newIsExpanded);
+    if (onExpandChange) {
+      onExpandChange(newIsExpanded); // Call the callback
+    }
     if (newIsExpanded) {
       setTimeout(() => {
         inputRef.current?.focus();
@@ -71,17 +75,23 @@ export function ExpandableSearch({ events, notices }: SearchProps) {
       ) {
         setIsExpanded(false);
         setQuery("");
+        if (onExpandChange) {
+          onExpandChange(false); // Call the callback when collapsing
+        }
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [onExpandChange]);
 
   const handleResultClick = () => {
     setIsExpanded(false);
     setQuery("");
+    if (onExpandChange) {
+      onExpandChange(false); // Call the callback when collapsing
+    }
   };
 
   return (
