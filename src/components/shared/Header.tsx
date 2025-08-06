@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
     { name: 'Committee', path: '/committee' },
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Notices', path: '/notices' },
-    { name: 'Get Involved', path: '/get-involved' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const handleNavClick = () => {
