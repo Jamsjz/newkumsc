@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import HeroSection from '@/components/shared/HeroSection';
 import { Users, Calendar, BookOpen, Mail, CheckCircle, MapPin, Phone, Heart, Star, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -176,25 +177,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 text-8xl text-white font-light">∑</div>
-          <div className="absolute bottom-20 right-20 text-6xl text-white font-light">∫</div>
-          <div className="absolute top-40 right-10 text-5xl text-white font-light">π</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Get Involved
-            </h1>
-            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
-              Join our vibrant mathematical community and be part of something extraordinary. Your journey in mathematics starts here.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Get Involved"
+        description="Join our vibrant mathematical community and be part of something extraordinary. Your journey in mathematics starts here."
+      />
 
       {/* Membership Information */}
       <section className="py-16 bg-white">

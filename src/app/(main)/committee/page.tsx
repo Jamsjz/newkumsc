@@ -1,4 +1,4 @@
-import React from 'react';
+import HeroSection from '@/components/shared/HeroSection';
 import { Mail, Linkedin, Calendar, Users, Award, BookOpen } from 'lucide-react';
 import leadershipData from '@/data/leadership.json';
 import Image from 'next/image';
@@ -9,19 +9,10 @@ const Leadership: React.FC = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Leadership
-            </h1>
-            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
-              Meet the dedicated individuals who guide our club&apos;s vision, manage our initiatives, and inspire mathematical excellence.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Leadership"
+        description="Meet the dedicated individuals who guide our club&apos;s vision, manage our initiatives, and inspire mathematical excellence."
+      />
 
       {/* Current Executive Committee */}
       <section className="py-16 bg-white">

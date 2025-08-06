@@ -1,4 +1,4 @@
-import React from 'react';
+import HeroSection from '@/components/shared/HeroSection';
 import { BookOpen, Users, Trophy, Target, ArrowRight } from 'lucide-react';
 import clubData from '@/data/clubInfo.json';
 import { Button } from '@/components/ui/button';
@@ -15,19 +15,10 @@ const OurStory: React.FC = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Our Story
-            </h1>
-            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
-              Eight years of mathematical excellence, community building, and inspiring the next generation of mathematicians at Kathmandu University.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Our Story"
+        description="Eight years of mathematical excellence, community building, and inspiring the next generation of mathematicians at Kathmandu University."
+      />
 
       {/* Mission & Vision */}
       <section className="py-16 bg-white">
