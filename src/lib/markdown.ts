@@ -23,6 +23,7 @@ export type FrontMatter = {
   prerequisites?: string;
   materials?: string[];
   formLink?: string;
+  tags?: string[];
 };
 
 /**

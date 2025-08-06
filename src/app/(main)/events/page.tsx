@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 import Image from 'next/image';
 import eventsData from '@/data/events.json';
+import { EventCalendar } from '@/components/features/events/EventCalendar';
 
 
 
@@ -109,6 +110,23 @@ const EventsPage: React.FC = () => {
           ) : (
             <p className="text-center text-lg text-[#6b8891]">No upcoming events at the moment. Check back soon!</p>
           )}
+        </div>
+      </section>
+
+      {/* Event Calendar Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Event Calendar
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-2xl mx-auto">
+              View all our events on the calendar.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <EventCalendar events={allEvents} />
+          </div>
         </div>
       </section>
 
