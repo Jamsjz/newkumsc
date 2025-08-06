@@ -7,6 +7,7 @@ import QuickStats from "@/components/features/home/QuickStats";
 import ClubIntroduction from "@/components/features/home/ClubIntroduction";
 import ClubFeatures from "@/components/features/home/ClubFeatures";
 import InfinityFeature from "@/components/features/home/InfinityFeature";
+import SponsorsSection from "@/components/features/home/SponsorsSection";
 
 
 
@@ -68,6 +69,8 @@ export default function HomePage() {
 					<InfinityFeature />
 				</div>
 			</section>
+
+			<SponsorsSection />
 
 			<section className="w-full bg-muted/50 py-10">
 				<div className="px-4 sm:px-6 md:px-8">
