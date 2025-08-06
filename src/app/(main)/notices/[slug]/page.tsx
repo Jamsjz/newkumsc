@@ -47,11 +47,11 @@ export default async function SingleNoticePage({ params }: PageProps) {
   return (
     <main className="container mx-auto max-w-4xl px-4 py-12 sm:px-6 md:px-8">
       <article>
-        {post.fm.image && (
+        {(post.fm.noticeImage || post.fm.banner) && (
           <div className="mb-12">
             <div className="relative aspect-[16/8] w-full overflow-hidden rounded-xl">
               <Image
-                src={post.fm.image as string}
+                src={(post.fm.noticeImage || post.fm.banner) as string}
                 alt={`${post.fm.title} banner`}
                 fill
                 priority

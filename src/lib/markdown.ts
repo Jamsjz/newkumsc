@@ -24,6 +24,8 @@ export type FrontMatter = {
   materials?: string[];
   formLink?: string;
   tags?: string[];
+  banner?: string;
+  noticeImage?: string;
 };
 
 /**

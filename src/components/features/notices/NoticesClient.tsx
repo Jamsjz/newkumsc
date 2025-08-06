@@ -2,6 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import { format } from 'date-fns';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -104,6 +105,16 @@ const NoticesClient: React.FC<NoticesClientProps> = ({ initialNotices }) => {
               {filteredNotices.map((notice) => (
                 <Link href={`/notices/${notice.slug}`} key={notice.slug}>
                   <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    {(notice.banner || notice.noticeImage) && (
+                      <div className="relative h-48 w-full overflow-hidden">
+                        <Image
+                          src={notice.banner || notice.noticeImage || ""}
+                          alt={notice.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-[#2f3033] mb-2">{notice.title}</h3>
                       <p className="text-[#6b8891] text-sm mb-4 line-clamp-3">{notice.description}</p>
