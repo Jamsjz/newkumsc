@@ -1,113 +1,164 @@
-import Image from "next/image";
-import Link from "next/link";
-import { CalendarDays } from "lucide-react";
+import React from 'react';
+import { getAllFrontMatter } from '@/lib/markdown';
+import { format } from 'date-fns';
+import Link from 'next/link';
+import Image from 'next/image';
+import eventsData from '@/data/events.json';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  getAllFrontMatter,
-  getRecentEvents,
-  FrontMatter, // Ensure this is exported from lib/markdown
-} from "@/lib/markdown";
-import { EventCalendar } from "@/components/features/events/EventCalendar";
 
-/**
- * A redesigned card to display a single event with an image and description,
- * inspired by the layout of the committee members page.
- */
-function EventCard({ event }: { event: FrontMatter }) {
-  return (
-    <Link href={`/events/${event.slug}`} passHref>
-      <Card className="overflow-hidden transition-all hover:shadow-lg hover:border-primary">
-        {/* The CardContent is wrapped in a grid to create the side-by-side layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3">
-          {/* Image Column */}
-          <div className="relative aspect-video md:aspect-square">
-            {event.image ? (
-              <Image
-                src={event.image}
-                alt={`${event.title} banner`}
-                fill
-                className="object-cover"
-              />
-            ) : (
-              // Fallback UI if no image is provided in the front matter
-              <div className="flex h-full items-center justify-center bg-muted">
-                <CalendarDays className="h-10 w-10 text-muted-foreground" />
-              </div>
-            )}
-          </div>
-          {/* Content Column */}
-          <div className="flex flex-col justify-center p-4 md:col-span-2">
-            <CardTitle className="text-xl leading-tight">
-              {event.title}
-            </CardTitle>
-            <CardDescription className="mt-2 flex items-center gap-2 text-sm">
-              <CalendarDays className="h-4 w-4" />
-              {new Date(event.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </CardDescription>
-            {/* Show a short description if available, clamping it to 2 lines */}
-            {event.description && (
-              <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
-                {event.description}
-              </p>
-            )}
-          </div>
-        </div>
-      </Card>
-    </Link>
-  );
-}
 
-export default function EventsPage() {
-  const allEvents = getAllFrontMatter("events");
-  const recentEvents = getRecentEvents("events", 5);
+const EventsPage: React.FC = () => {
+  const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const now = new Date().setHours(0,0,0,0); // Get today's date at midnight for comparison
+
+  const upcomingEvents = allEvents.filter(event => new Date(event.date).getTime() >= now).map(event => ({
+    ...event,
+    time: event.time || "N/A",
+    location: event.location || "N/A",
+    category: event.category || "all",
+    attendees: event.attendees || 0,
+    maxAttendees: event.maxAttendees || 0,
+    speaker: event.speaker || "N/A",
+    featured: event.featured || false,
+    image: event.image || "",
+    registrationOpen: event.registrationOpen || false,
+    price: event.price || "Free",
+    prerequisites: event.prerequisites || "N/A",
+    materials: event.materials || [],
+    formLink: event.formLink || "",
+  }));
+
+  const pastEvents = allEvents.filter(event => new Date(event.date).getTime() < now).map(event => ({
+    ...event,
+    time: event.time || "N/A",
+    location: event.location || "N/A",
+    category: event.category || "all",
+    attendees: event.attendees || 0,
+    maxAttendees: event.maxAttendees || 0,
+    speaker: event.speaker || "N/A",
+    featured: event.featured || false,
+    image: event.image || "",
+    registrationOpen: event.registrationOpen || false,
+    price: event.price || "Free",
+    prerequisites: event.prerequisites || "N/A",
+    materials: event.materials || [],
+    formLink: event.formLink || "",
+  }));
+
+  const getCategoryColor = (category: string) => {
+    const cat = eventsData.categories.find(c => c.id === category);
+    return cat ? cat.color : 'bg-[#6b8891]';
+  };
 
   return (
-    <main className="container mx-auto px-4 py-12 sm:px-6 md:px-8">
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Club Events
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          Stay updated with our workshops, competitions, and meetups.
-        </p>
-      </div>
-
-      {/* Main layout grid is now 5 columns wide on large screens */}
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-        {/* Right Column (Desktop) / Top Section (Mobile) */}
-        <div className="lg:col-span-2 order-1 lg:order-2">
-          <h2 className="mb-6 text-2xl font-bold tracking-tight">
-            Event Calendar
-          </h2>
-          <Card>
-            <CardContent className="flex justify-center p-2 md:p-4">
-              <EventCalendar events={allEvents} />
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Left Column (Desktop) / Bottom Section (Mobile) */}
-        <div className="lg:col-span-3 order-2 lg:order-1">
-          <h2 className="mb-6 text-2xl font-bold tracking-tight">
-            Recent & Upcoming
-          </h2>
-          <div className="flex flex-col gap-6">
-            {recentEvents.map((event) => (
-              <EventCard key={event.slug} event={event} />
-            ))}
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-[#2f3033] to-[#264653] text-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              Events
+            </h1>
+            <p className="text-xl sm:text-2xl text-[#6b8891] leading-relaxed">
+              Explore our upcoming and past events, workshops, and competitions.
+            </p>
           </div>
         </div>
-      </div>
-    </main>
+      </section>
+
+      {/* Upcoming Events Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Upcoming Events
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-2xl mx-auto">
+              Don&apos;t miss out on our exciting future events!
+            </p>
+          </div>
+
+          {upcomingEvents.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {upcomingEvents.map((event) => (
+                <Link href={`/events/${event.slug}`} key={event.slug}>
+                  <div className="bg-[#f4f1de] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className={`${getCategoryColor(event.category)} absolute top-4 left-4 text-white px-3 py-1 rounded-full text-sm font-medium capitalize`}>
+                        {eventsData.categories.find(c => c.id === event.category)?.name}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[#2f3033] mb-2">{event.title}</h3>
+                      <p className="text-[#6b8891] text-sm mb-4 line-clamp-3">{event.description}</p>
+                      <div className="flex items-center justify-between text-sm text-[#6b8891]">
+                        <span>{format(new Date(event.date), 'MMM dd, yyyy')}</span>
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-lg text-[#6b8891]">No upcoming events at the moment. Check back soon!</p>
+          )}
+        </div>
+      </section>
+
+      {/* Past Events Section */}
+      <section className="py-16 bg-[#f4f1de]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
+              Past Events
+            </h2>
+            <p className="text-lg text-[#6b8891] max-w-2xl mx-auto">
+              A look back at our memorable events and achievements.
+            </p>
+          </div>
+
+          {pastEvents.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {pastEvents.map((event) => (
+                <Link href={`/events/${event.slug}`} key={event.slug}>
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className={`${getCategoryColor(event.category)} absolute top-4 left-4 text-white px-3 py-1 rounded-full text-sm font-medium capitalize`}>
+                        {eventsData.categories.find(c => c.id === event.category)?.name}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[#2f3033] mb-2">{event.title}</h3>
+                      <p className="text-[#6b8891] text-sm mb-4 line-clamp-3">{event.description}</p>
+                      <div className="flex items-center justify-between text-sm text-[#6b8891]">
+                        <span>{format(new Date(event.date), 'MMM dd, yyyy')}</span>
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-lg text-[#6b8891]">No past events to display.</p>
+          )}
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default EventsPage;
