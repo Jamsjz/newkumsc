@@ -6,7 +6,26 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clubData from '@/data/clubInfo.json';
 
-const Header: React.FC = () => {
+import { ExpandableSearch } from "./ExpandableSearch";
+
+interface ContentItem {
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  type: "event" | "notice";
+}
+
+export interface SearchProps {
+  events: ContentItem[];
+  notices: ContentItem[];
+}
+
+type HeaderProps = {
+  searchData: SearchProps;
+};
+
+const Header: React.FC<HeaderProps> = ({ searchData }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const currentPath = usePathname();
@@ -75,6 +94,7 @@ const Header: React.FC = () => {
                 }`} />
               </Link>
             ))}
+            <ExpandableSearch events={searchData.events} notices={searchData.notices} />
           </div>
 
           {/* Mobile menu button */}
@@ -105,6 +125,9 @@ const Header: React.FC = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="px-3 py-2">
+                <ExpandableSearch events={searchData.events} notices={searchData.notices} />
+              </div>
             </div>
           </div>
         )}

@@ -44,14 +44,24 @@ export default async function RootLayout({
 }>) {
   const notices = getAllFrontMatter("notices")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+    .slice(0, 3).map((notice) => ({
+      ...notice,
+      type: "notice" as const,
+    }));
+
+  const events = getAllFrontMatter("events").map((event) => ({
+    ...event,
+    type: "event" as const,
+  }));
+
+  const searchData = { events, notices };
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <MathJaxContext config={config}>
-          <Header />
+          <Header searchData={searchData} />
           <main className="pt-16">{children}</main>
         </MathJaxContext>
         <Footer />
