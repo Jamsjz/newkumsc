@@ -29,13 +29,13 @@ const NoticeModal: React.FC<NoticeModalProps> = ({ notices }) => {
 
   useEffect(() => {
     // Check if the user has visited before
-    const hasVisited = localStorage.getItem("hasVisited");
+    const hasVisited = sessionStorage.getItem("hasVisited");
 
     if (!hasVisited) {
       setIsOpen(true);
 
       // Set flag in localStorage
-      localStorage.setItem("hasVisited", "true");
+      sessionStorage.setItem("hasVisited", "true");
     }
   }, []);
 
