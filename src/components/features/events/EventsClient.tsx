@@ -18,7 +18,8 @@ interface EventsClientProps {
 
 const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const initialCategory = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('category') || 'all' : 'all';
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedTag, setSelectedTag] = useState('all');
 
   const getCategoryColor = (category: string) => {

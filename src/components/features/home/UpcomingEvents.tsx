@@ -72,7 +72,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
   }
 
   return (
-    <section className="py-16 bg-[#f4f1de]">
+    <section className="py-16 bg-[#f4f1de]" id="upcoming-events">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">

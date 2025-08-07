@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import sponsorsData from '@/data/sponsors.json';
+import { Sponsor } from '@/lib/data';
 import Image from 'next/image';
 
 interface SponsorsSectionProps {
@@ -20,7 +21,7 @@ const SponsorsSection: React.FC<SponsorsSectionProps> = ({
   tierFilter = ['platinum', 'gold', 'silver', 'bronze']
 }) => {
   // Filter sponsors based on tier
-  const filteredSponsors = sponsorsData.sponsors.filter(
+  const filteredSponsors = (sponsorsData.sponsors as Sponsor[]).filter(
     (sponsor) => (tierFilter.includes(sponsor.tier) && (sponsor.tier === 'platinum' || sponsor.tier === 'gold'))
   ).slice(0, 6);
 
@@ -41,56 +42,68 @@ const SponsorsSection: React.FC<SponsorsSectionProps> = ({
         )}
 
         <div className={`grid gap-6 ${compact ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-6' : 'md:grid-cols-3'}`}>
-          {filteredSponsors.map((sponsor) => (
-            <div 
-              key={sponsor.id} 
-              className={`${compact ? 'flex justify-center items-center p-4' : 'border border-gray-200 p-6'} bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300`}
-            >
-              {compact ? (
-                <Image 
-                  src={sponsor.logo} 
-                  alt={`${sponsor.name} logo`} 
-                  width={150}
-                  height={80}
-                  className="h-12 object-contain" 
-                />
-              ) : (
-                <>
-                  <div className="flex justify-center mb-4">
-                    <Image 
-                      src={sponsor.logo} 
-                      alt={`${sponsor.name} logo`} 
-                      width={150}
-                      height={80}
-                      className="h-16 object-contain" 
-                    />
-                  </div>
-                  <div className="text-center mb-3">
-                    <h3 className="text-lg font-bold text-[#2f3033]">{sponsor.name}</h3>
-                    <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full capitalize mt-2 ${
-                      sponsor.tier === 'platinum' ? 'bg-gray-200 text-gray-800' :
-                      sponsor.tier === 'gold' ? 'bg-yellow-100 text-yellow-800' :
-                      sponsor.tier === 'silver' ? 'bg-gray-100 text-gray-700' :
-                      'bg-amber-100 text-amber-800'
-                    }`}>
-                      {sponsor.tier} Sponsor
-                    </span>
-                  </div>
-                  {!compact && <p className="text-sm text-[#4a6670] text-center mb-4">{sponsor.description}</p>}
-                  <div className="text-center">
-                    <a 
-                      href={sponsor.website} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-[#264653] hover:text-[#4a6670] transition-colors"
-                    >
-                      Visit Website <ChevronRight size={16} className="ml-1" />
-                    </a>
-                  </div>
-                </>
-              )}
+          {filteredSponsors.length > 0 ? (
+            filteredSponsors.map((sponsor) => (
+              <div 
+                key={sponsor.id} 
+                className={`${compact ? 'flex justify-center items-center p-4' : 'border border-gray-200 p-6'} bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ${sponsor.tier === 'platinum' || sponsor.tier === 'gold' ? 'glass-morphism' : ''}`}
+              >
+                {compact ? (
+                  <Image 
+                    src={sponsor.logo} 
+                    alt={`${sponsor.name} logo`} 
+                    width={150}
+                    height={80}
+                    className="h-12 object-contain" 
+                  />
+                ) : (
+                  <>
+                    <div className="flex justify-center mb-4">
+                      <Image 
+                        src={sponsor.logo} 
+                        alt={`${sponsor.name} logo`} 
+                        width={150}
+                        height={80}
+                        className="h-16 object-contain" 
+                      />
+                    </div>
+                    <div className="text-center mb-3">
+                      <h3 className="text-lg font-bold text-[#2f3033]">{sponsor.name}</h3>
+                      <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full capitalize mt-2 ${
+                        sponsor.tier === 'platinum' ? 'bg-gray-200 text-gray-800' :
+                        sponsor.tier === 'gold' ? 'bg-yellow-100 text-yellow-800' :
+                        sponsor.tier === 'silver' ? 'bg-gray-100 text-gray-700' :
+                        'bg-amber-100 text-amber-800'
+                      }`}>
+                        {sponsor.tier} Sponsor
+                      </span>
+                    </div>
+                    {!compact && <p className="text-sm text-[#4a6670] text-center mb-4">{sponsor.description}</p>}
+                    <div className="text-center">
+                      <a 
+                        href={sponsor.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#264653] hover:text-[#4a6670] transition-colors"
+                      >
+                        Visit Website <ChevronRight size={16} className="ml-1" />
+                      </a>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8">
+              <p className="text-lg text-[#6b8891] mb-4">No sponsors to display at the moment.</p>
+              <Link
+                href="/sponsors#join-sponsor"
+                className="inline-block px-6 py-3 bg-[#ff8c42] text-white font-medium rounded-lg hover:bg-[#e67220] transition-colors"
+              >
+                Become a Sponsor
+              </Link>
             </div>
-          ))}
+          )}
         </div>
 
         {!eventSpecific && (

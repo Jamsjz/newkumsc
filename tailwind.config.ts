@@ -25,6 +25,15 @@ const config: Config = {
         'cta-orange-hover': 'var(--cta-orange-hover)',
         'cta-dark-blue-hover': 'var(--cta-dark-blue-hover)',
       },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '-700px 0' },
+          '100%': { backgroundPosition: '700px 0' },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 2s infinite linear',
+      },
     },
   },
   plugins: [],

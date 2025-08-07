@@ -41,16 +41,16 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                'About Us',
-                'Upcoming Events',
-                'Bismaya Magazine',
-                'Membership',
-                'Contact Us',
-                'Gallery'
+                { name: 'Our Story', href: '/our-story' },
+                { name: 'Upcoming Events', href: '/events#upcoming-events' },
+                { name: 'Bismaya Magazine', href: '#' },
+                { name: 'Membership', href: '/contact#contact-form' },
+                { name: 'Contact Us', href: '/contact#contact-form' },
+                { name: 'Gallery', href: '#' }
               ].map((link) => (
-                <li key={link}>
-                  <a href="#" style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent transition-colors duration-200 flex items-center space-x-1 group">
-                    <span>{link}</span>
+                <li key={link.name}>
+                  <a href={link.href} style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent transition-colors duration-200 flex items-center space-x-1 group">
+                    <span>{link.name}</span>
                     <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </li>
@@ -63,16 +63,16 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">Programs</h3>
             <ul className="space-y-2">
               {[
-                'Mathematical Workshops',
-                'Guest Lectures',
-                'Competition Training',
-                'Research Projects',
-                'Community Outreach',
-                'Alumni Network'
+                { name: 'Mathematical Workshops', href: '/events?category=workshop' },
+                { name: 'Guest Lectures', href: '/events?category=lecture' },
+                { name: 'Competition Training', href: '/events?category=competition' },
+                { name: 'Research Projects', href: '/events?category=research' },
+                { name: 'Community Outreach', href: '/events?category=outreach' },
+                { name: 'Alumni Network', href: '/events?category=alumni' }
               ].map((program) => (
-                <li key={program}>
-                  <a href="#" style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent transition-colors duration-200">
-                    {program}
+                <li key={program.name}>
+                  <a href={program.href} style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent transition-colors duration-200">
+                    {program.name}
                   </a>
                 </li>
               ))}

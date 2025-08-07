@@ -14,4 +14,13 @@ export type Testimonial = {
   perspective: string;
 };
 
+export interface Sponsor {
+  id: string;
+  name: string;
+  logo: string;
+  tier: string;
+  description: string;
+  website: string;
+}
+
 export const testimonials: Testimonial[] = perspectivesData.testimonials;

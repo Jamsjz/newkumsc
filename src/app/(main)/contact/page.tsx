@@ -299,12 +299,12 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" id="contact-form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-3xl font-bold text-[#2f3033] mb-6">Join Our Community</h2>
+              <h2 className="text-3xl font-bold text-[#2f3033] mb-6">Get Involved</h2>
               <p className="text-[#6b8891] mb-8 leading-relaxed">
                 Ready to become part of our mathematical family? Fill out the form below and we&apos;ll get back to you soon!
               </p>
