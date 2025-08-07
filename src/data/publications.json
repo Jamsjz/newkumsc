@@ -1,22 +1,108 @@
 {
-  "testimonials": [
+  "bismayaIssues": [
     {
-      "name": "Mukesh Tiwari",
-      "role": "Former President",
-      "image": "/images/alumni/MukeshTiwari.webp",
-      "perspective": "My time with the Computational Mathematics Club has been transformative. The club’s environment is one of collaboration and innovation, where every member is encouraged to contribute and learn. The practical sessions and real-world problem-solving have prepared me for challenges beyond the classroom. I can’t imagine my university experience without this club."
+      "id": 8,
+      "title": "Advanced Mathematical Concepts",
+      "date": "2025-01-15",
+      "coverImage": "https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Exploring cutting-edge mathematical theories and their applications in modern science.",
+      "articles": 12,
+      "contributors": 18,
+      "downloads": 1250,
+      "featured": true,
+      "downloadUrl": "#",
+      "viewUrl": "#"
     },
     {
-      "name": "Astha Pandey",
-      "role": "Alumni",
-      "image": "/images/alumni/AsthaPandey.webp",
-      "perspective": "As a recent graduate, I attribute much of my success to the experiences I gained through the Computational Mathematics Club. The club’s focus on teamwork and practical applications helped me bridge the gap between academic studies and professional demands. It’s a great platform for anyone eager to excel in computational mathematics."
+      "id": 7,
+      "title": "Mathematical Modeling in Real World",
+      "date": "2024-09-20",
+      "coverImage": "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Applications of mathematical models in solving contemporary challenges.",
+      "articles": 10,
+      "contributors": 15,
+      "downloads": 980,
+      "featured": false,
+      "downloadUrl": "#",
+      "viewUrl": "#"
     },
     {
-      "name": "Pratik Sharma",
-      "role": "Alumni",
-      "image": "/images/alumni/PratikSharma.webp",
-      "perspective": "The Computational Mathematics Club at Kathmandu University has been instrumental in connecting me with industry leaders and helping me secure valuable internships. The skills and knowledge I’ve gained through club activities have been pivotal in my professional development. I highly recommend this club to any student interested in making significant advancements in their mathematical career."
+      "id": 6,
+      "title": "Statistics and Data Science",
+      "date": "2024-05-10",
+      "coverImage": "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Deep dive into statistical methods and data analysis techniques.",
+      "articles": 14,
+      "contributors": 20,
+      "downloads": 1100,
+      "featured": false,
+      "downloadUrl": "#",
+      "viewUrl": "#"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Mathematical Modeling Competition Victory",
+      "description": "Our team secured first place in the National Mathematical Modeling Competition with innovative solutions to complex real-world problems.",
+      "category": "Competition",
+      "date": "2024-11-15",
+      "status": "Completed",
+      "team": ["Priya Sharma", "Rohan Thapa", "Anita Rai"],
+      "achievement": "1st Place National",
+      "image": "https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      "id": 2,
+      "title": "AI-Powered Mathematical Tutoring System",
+      "description": "Developing an intelligent tutoring system that adapts to student learning patterns and provides personalized mathematical instruction.",
+      "category": "Research",
+      "date": "2024-12-01",
+      "status": "Ongoing",
+      "team": ["Bikash Shrestha", "Maya Tamang", "Suresh Gurung"],
+      "achievement": "Prototype Development",
+      "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      "id": 3,
+      "title": "Community Math Outreach Program",
+      "description": "Volunteer initiative providing free mathematical education to underserved communities and promoting mathematical literacy.",
+      "category": "Outreach",
+      "date": "2024-08-01",
+      "status": "Ongoing",
+      "team": ["Sita Adhikari", "Ram Bahadur", "Gita Neupane"],
+      "achievement": "200+ Students Reached",
+      "image": "https://images.pexels.com/photos/8472887/pexels-photo-8472887.jpeg?auto=compress&cs=tinysrgb&w=400"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "National Mathematical Modeling Competition",
+      "award": "First Place",
+      "year": "2024",
+      "description": "Outstanding performance in solving complex mathematical problems",
+      "category": "Competition"
+    },
+    {
+      "title": "Inter-University Mathematics Olympiad",
+      "award": "Team Excellence Award",
+      "year": "2024",
+      "description": "Exceptional teamwork and problem-solving skills",
+      "category": "Olympiad"
+    },
+    {
+      "title": "Best Student Publication",
+      "award": "Bismaya Magazine Recognition",
+      "year": "2023",
+      "description": "Outstanding contribution to mathematical literature",
+      "category": "Publication"
+    },
+    {
+      "title": "Community Service Award",
+      "award": "University Recognition",
+      "year": "2023",
+      "description": "Significant impact through mathematical outreach programs",
+      "category": "Service"
     }
   ]
 }

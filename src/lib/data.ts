@@ -1,5 +1,5 @@
 import clubInfo from "@/data/clubInfo.json";
-import publicationsData from "@/data/publications.json";
+import perspectivesData from "@/data/perspectives.json";
 
 export const clubSocials = clubInfo.clubInfo.socialMedia;
 
@@ -14,4 +14,4 @@ export type Testimonial = {
   perspective: string;
 };
 
-export const testimonials: Testimonial[] = publicationsData.testimonials;
+export const testimonials: Testimonial[] = perspectivesData.testimonials;
