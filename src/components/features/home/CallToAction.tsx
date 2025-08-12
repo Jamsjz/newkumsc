@@ -109,33 +109,12 @@ const CallToAction: React.FC = () => {
 								<p className="text-[#6b8891] mb-6">
 									Get the latest news about events, competitions, and club activities delivered to your inbox.
 								</p>
-
-								{!isSubscribed ? (
-									<form onSubmit={handleSubscribe} className="space-y-4">
-										<div className="relative">
-											<Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#6b8891]" />
-											<Input
-												type="email"
-												value={email}
-												onChange={(e) => setEmail(e.target.value)}
-												placeholder="Enter your email address"
-												className="w-full pl-12 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-[#6b8891] focus:outline-none focus:ring-2 focus:ring-[#ff8c42] focus:border-transparent"
-												required
-											/>
-										</div>
-										<Button
-											type="submit"
-											className="w-full bg-[#264653] hover:bg-cta-dark-blue-hover text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200"
-										>
-											Subscribe to Newsletter
-										</Button>
-									</form>
-								) : (
-									<div className="flex items-center justify-center space-x-2 text-[#ffd700] py-3">
-										<CheckCircle className="h-5 w-5" />
-										<span className="font-semibold">Successfully subscribed!</span>
-									</div>
-								)}
+								<iframe
+									src="https://bismayaofkumsc.substack.com/embed"
+									width="100%"
+									height="320"
+									style={{ border: "1px solid #EEE", background: "white" }}
+								></iframe>
 							</div>
 						</div>
 					</div>
