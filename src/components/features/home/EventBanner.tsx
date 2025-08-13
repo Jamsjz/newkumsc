@@ -51,13 +51,15 @@ export function EventBanner({ events = [] }: { events: FrontMatter[] }) {
           <CarouselItem key={idx} className="basis-full">
             <Card className="rounded-none border-none">
               <CardContent className="relative p-0 h-[50vh] sm:h-[60vh] md:h-[75vh]">
-                <Image
-                  src={event.image || ""}
-                  alt={event.title}
-                  fill
-                  priority={idx === 0}
-                  className="object-cover w-full h-full"
-                />
+                {event.image && (
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    priority={idx === 0}
+                    className="object-cover w-full h-full"
+                  />
+                )}
                 {/* Overlay with responsive padding */}
                 <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center text-white p-4 sm:p-8">
                   {/* Container with responsive max-width to control line length */}

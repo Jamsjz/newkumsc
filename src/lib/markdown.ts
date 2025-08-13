@@ -26,6 +26,9 @@ export type FrontMatter = {
   tags?: string[];
   banner?: string;
   noticeImage?: string;
+  from?: string;
+  to?: string;
+  form?: string;
 };
 
 /**

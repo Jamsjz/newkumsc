@@ -32,13 +32,27 @@ export function EventCalendar({ events }: EventCalendarProps) {
   const eventsByDate = React.useMemo(() => {
     const map = new Map<string, FrontMatter[]>();
     events.forEach((event) => {
-      const date = safeParseDate(String(event.date));
-      if (date) {
-        const dateString = format(date, "yyyy-MM-dd");
-        if (!map.has(dateString)) {
-          map.set(dateString, []);
+      if (event.from && event.to) {
+        const from = safeParseDate(event.from);
+        const to = safeParseDate(event.to);
+        if (from && to) {
+          for (let d = from; d <= to; d.setDate(d.getDate() + 1)) {
+            const dateString = format(d, "yyyy-MM-dd");
+            if (!map.has(dateString)) {
+              map.set(dateString, []);
+            }
+            map.get(dateString)?.push(event);
+          }
         }
-        map.get(dateString)?.push(event);
+      } else {
+        const date = safeParseDate(String(event.date || event.from));
+        if (date) {
+          const dateString = format(date, "yyyy-MM-dd");
+          if (!map.has(dateString)) {
+            map.set(dateString, []);
+          }
+          map.get(dateString)?.push(event);
+        }
       }
     });
     return map;

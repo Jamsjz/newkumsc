@@ -58,11 +58,20 @@ export default async function SingleEventPage({ params }: PageProps) {
           <div className="flex items-center gap-2">
             <CalendarDays className="h-4 w-4" />
             <span>
-              {new Date(post.fm.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {post.fm.from && post.fm.to
+                ? `${new Date(post.fm.from).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                  })} - ${new Date(post.fm.to).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}`
+                : new Date(post.fm.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
             </span>
           </div>
           {post.fm.time && (
@@ -84,10 +93,10 @@ export default async function SingleEventPage({ params }: PageProps) {
             </div>
           )}
         </div>
-        {isFutureEvent && post.fm.registrationOpen && post.fm.formLink && (
+        {isFutureEvent && post.fm.form && (
           <div className="mt-8 text-center">
             <Button asChild size="lg" className="bg-[#ff8c42] hover:bg-[#e67220] text-white">
-              <Link href={post.fm.formLink} target="_blank" rel="noopener noreferrer">
+              <Link href={post.fm.form} target="_blank" rel="noopener noreferrer">
                 Register Now <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

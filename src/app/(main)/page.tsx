@@ -17,11 +17,17 @@ import { TestimonialCarousel } from "@/components/features/home/Perspectives";
 import CallToAction from "@/components/features/home/CallToAction";
 
 export default function HomePage() {
-	const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+	const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(a.from || a.date).getTime() - new Date(b.from || b.date).getTime());
 	const now = new Date().setHours(0,0,0,0); // Get today's date at midnight for comparison
 
-	const futureEvents = allEvents.filter(event => new Date(event.date).getTime() >= now);
-	const pastEvents = allEvents.filter(event => new Date(event.date).getTime() < now);
+	const futureEvents = allEvents.filter(event => {
+		const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
+		return eventEndDate.getTime() >= now;
+	  });
+	const pastEvents = allEvents.filter(event => {
+		const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
+		return eventEndDate.getTime() < now;
+	  });
 
 	// Map future events for UpcomingEvents component
 	const upcomingEventsForComponent = futureEvents.slice(0, 4).map(event => ({
@@ -60,7 +66,6 @@ export default function HomePage() {
 			<SponsorsSection />
 
 			<section>
-				<h2 className="text-3xl font-bold tracking-tight text-center mb-8">Upcoming Events</h2>
 				<UpcomingEvents events={upcomingEventsForComponent} />
 			</section>
 

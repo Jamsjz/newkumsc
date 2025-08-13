@@ -12,6 +12,8 @@ import { Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { FrontMatter } from '@/lib/markdown';
 
+import EventDate from './EventDate';
+
 interface EventsClientProps {
   initialEvents: FrontMatter[];
 }
@@ -56,8 +58,14 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
   }, [initialEvents, searchQuery, selectedCategory, selectedTag]);
 
   const now = new Date().setHours(0,0,0,0);
-  const upcomingEvents = filteredEvents.filter(event => new Date(event.date).getTime() >= now);
-  const pastEvents = filteredEvents.filter(event => new Date(event.date).getTime() < now);
+  const upcomingEvents = filteredEvents.filter(event => {
+    const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
+    return eventEndDate.getTime() >= now;
+  });
+  const pastEvents = filteredEvents.filter(event => {
+    const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
+    return eventEndDate.getTime() < now;
+  });
 
   return (
     <React.Fragment>
@@ -155,9 +163,18 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
                       <h3 className="text-xl font-bold text-[#2f3033] mb-2">{event.title}</h3>
                       <p className="text-[#6b8891] text-sm mb-4 line-clamp-3">{event.description}</p>
                       <div className="flex items-center justify-between text-sm text-[#6b8891]">
-                        <span>{format(new Date(event.date), 'MMM dd, yyyy')}</span>
+                        <EventDate event={event} />
                         <span>{event.location}</span>
                       </div>
+                      {event.form && new Date(event.to || event.date).getTime() >= new Date().setHours(0,0,0,0) && (
+                        <div className="mt-4">
+                          <Button asChild size="sm" className="w-full bg-[#ff8c42] hover:bg-[#e67220] text-white">
+                            <Link href={event.form} target="_blank" rel="noopener noreferrer">
+                              Register Now
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
                       {event.tags && event.tags.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-2">
                           {event.tags.map(tag => (
@@ -212,9 +229,18 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
                       <h3 className="text-xl font-bold text-[#2f3033] mb-2">{event.title}</h3>
                       <p className="text-[#6b8891] text-sm mb-4 line-clamp-3">{event.description}</p>
                       <div className="flex items-center justify-between text-sm text-[#6b8891]">
-                        <span>{format(new Date(event.date), 'MMM dd, yyyy')}</span>
+                        <EventDate event={event} />
                         <span>{event.location}</span>
                       </div>
+                      {event.form && new Date(event.to || event.date).getTime() >= new Date().setHours(0,0,0,0) && (
+                        <div className="mt-4">
+                          <Button asChild size="sm" className="w-full bg-[#ff8c42] hover:bg-[#e67220] text-white">
+                            <Link href={event.form} target="_blank" rel="noopener noreferrer">
+                              Register Now
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
                       {event.tags && event.tags.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-2">
                           {event.tags.map(tag => (

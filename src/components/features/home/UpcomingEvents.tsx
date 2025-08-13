@@ -10,7 +10,9 @@ interface EventItem {
   slug: string;
   title: string;
   description: string;
-  date: string;
+  date?: string;
+  from?: string;
+  to?: string;
   time: string;
   location: string;
   category: string;
@@ -33,8 +35,13 @@ type UpcomingEventsProps = {
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
   const [activeEvent, setActiveEvent] = useState(0);
   
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+  const formatDate = (event: EventItem) => {
+    if (event.from && event.to) {
+      const from = new Date(event.from);
+      const to = new Date(event.to);
+      return `${from.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })} - ${to.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
+    }
+    const date = new Date(event.date!);
     return date.toLocaleDateString('en-US', { 
       weekday: 'long', 
       year: 'numeric', 
@@ -43,8 +50,8 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
     });
   };
 
-  const getTimeUntil = (dateString: string) => {
-    const eventDate = new Date(dateString);
+  const getTimeUntil = (event: EventItem) => {
+    const eventDate = new Date(event.to || event.date!);
     const now = new Date();
     const diffTime = eventDate.getTime() - now.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -94,7 +101,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     {eventsData.categories.find(c => c.id === events[activeEvent].category)?.name}
                   </span>
                   <span className="text-[#ff8c42] font-semibold text-sm">
-                    {getTimeUntil(events[activeEvent].date)}
+                    {getTimeUntil(events[activeEvent])}
                   </span>
                 </div>
 
@@ -112,7 +119,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     <div>
                       <div className="text-sm text-[#6b8891]">Date</div>
                       <div className="font-semibold text-[#2f3033]">
-                        {formatDate(events[activeEvent].date)}
+                        {formatDate(events[activeEvent])}
                       </div>
                     </div>
                   </div>
@@ -146,12 +153,14 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     </span>
                   </div>
 
+                  {events[activeEvent].form && new Date(events[activeEvent].to || events[activeEvent].date).getTime() >= new Date().setHours(0,0,0,0) && (
                   <Button asChild className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
-                    <Link href={events[activeEvent].formLink || "/contact"}>
+                    <Link href={events[activeEvent].form || "/contact"}>
                       <span>Register Now</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -176,7 +185,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     {eventsData.categories.find(c => c.id === event.category)?.name}
                   </span>
                   <span className="text-xs text-[#6b8891]">
-                    {getTimeUntil(event.date)}
+                    {getTimeUntil(event)}
                   </span>
                 </div>
 
@@ -187,13 +196,22 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                 <div className="flex items-center space-x-4 text-xs text-[#6b8891]">
                   <div className="flex items-center space-x-1">
                     <Calendar className="h-3 w-3" />
-                    <span>{new Date(event.date).toLocaleDateString()}</span>
+                    <span>{formatDate(event)}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Clock className="h-3 w-3" />
                     <span>{event.time}</span>
                   </div>
                 </div>
+                {event.form && new Date(event.to || event.date).getTime() >= new Date().setHours(0,0,0,0) && (
+                  <div className="mt-4">
+                    <Button asChild size="sm" className="w-full bg-[#ff8c42] hover:bg-[#e67220] text-white">
+                      <Link href={event.form} target="_blank" rel="noopener noreferrer">
+                        Register Now
+                      </Link>
+                    </Button>
+                  </div>
+                )}
               </div>
             ))}
 
