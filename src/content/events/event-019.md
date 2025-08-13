@@ -7,6 +7,7 @@ banner: "https://www.shutterstock.com/image-vector/business-conference-horizonta
 description: "An AESIM school on Cryptography for the 21st Century."
 category: "Crypography"
 form: "https://forms.gle/MoXXNa1VjLMyCnpN6"
+location: "Kathmandu University, Dhulikhel, Kavre, Nepal"
 ---
 
 **📅 Date:** August 11–17, 2025
