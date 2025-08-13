@@ -36,6 +36,6 @@ setting of Kathmandu University**.
 * Network with **experts and peers** in the field
 * Learn in a **scenic, inspiring environment**
 
-**🔗 Register now** to be part of this **premier cryptography school**!
+**🔗 [Register now](https://forms.gle/MoXXNa1VjLMyCnpN6)** to be part of this **premier cryptography school**!
 
 ---
