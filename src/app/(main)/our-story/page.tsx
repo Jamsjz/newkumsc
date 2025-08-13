@@ -149,7 +149,7 @@ const OurStory: React.FC = () => {
               <p className="text-lg text-[#6b8891] leading-relaxed mb-6">
                 Our club serves as a bridge between academic learning and practical application, providing students with opportunities to engage with mathematics beyond the classroom.
               </p>
-              <Link href="/contact">
+              <Link href="/contact#contact-form">
                 <Button className="bg-[#264653] hover:bg-[#1b3640] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
                   <span>Visit KU Mathematics Department</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

@@ -113,23 +113,6 @@ const Footer: React.FC = () => {
 
         {/* Bottom Section */}
         <div style={{borderColor: 'var(--footer-border)'}} className="border-t mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div style={{color: 'var(--footer-text)'}} className="text-sm">
-              © {currentYear} {clubData.clubInfo.name}. All rights reserved.
-            </div>
-            
-            <div className="flex items-center space-x-6">
-              <a href="#" style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent text-sm transition-colors duration-200">
-                Privacy Policy
-              </a>
-              <a href="#" style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent text-sm transition-colors duration-200">
-                Terms of Service
-              </a>
-              <a href="#" style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent text-sm transition-colors duration-200">
-                Code of Conduct
-              </a>
-            </div>
-          </div>
 
           <div className="mt-4 text-center">
             <div style={{color: 'var(--footer-text)'}} className="text-xs">

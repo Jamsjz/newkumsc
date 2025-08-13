@@ -112,7 +112,7 @@ const Sponsors: React.FC = () => {
 
           <div className="mt-12 text-center">
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="inline-block px-6 py-3 bg-[#ff8c42] text-white font-medium rounded-lg hover:bg-[#e67220] transition-colors"
             >
               Inquire About Sponsorship
@@ -223,7 +223,7 @@ const Sponsors: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                href="/contact"
+                href="/contact#contact-form"
                 className="px-6 py-3 bg-[#ff8c42] text-white font-medium rounded-lg hover:bg-[#e67220] transition-colors"
               >
                 Become a Sponsor
