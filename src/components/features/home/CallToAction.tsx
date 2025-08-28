@@ -1,25 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
-import { ArrowRight, Users, Calendar, BookOpen, Mail, CheckCircle } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Users, Calendar, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+
 import Link from 'next/link';
 
 const CallToAction: React.FC = () => {
-	const [email, setEmail] = useState('');
-	const [isSubscribed, setIsSubscribed] = useState(false);
-
-	const handleSubscribe = (e: React.FormEvent) => {
-		e.preventDefault();
-		if (email) {
-			setIsSubscribed(true);
-			setTimeout(() => {
-				setIsSubscribed(false);
-				setEmail('');
-			}, 3000);
-		}
-	};
+	
 
 	return (
 		<React.Fragment>

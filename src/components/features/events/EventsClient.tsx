@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useMemo } from 'react';
-import { format } from 'date-fns';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import eventsData from '@/data/events.json';

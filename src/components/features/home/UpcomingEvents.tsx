@@ -153,9 +153,9 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     </span>
                   </div>
 
-                  {events[activeEvent].form && new Date(events[activeEvent].to || events[activeEvent].date).getTime() >= new Date().setHours(0,0,0,0) && (
+                  {events[activeEvent].formLink && new Date(events[activeEvent].to ?? events[activeEvent].date!).getTime() >= new Date().setHours(0,0,0,0) && (
                   <Button asChild className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 group">
-                    <Link href={events[activeEvent].form || "/contact"}>
+                    <Link href={events[activeEvent].formLink || "/contact"}>
                       <span>Register Now</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -203,10 +203,10 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                     <span>{event.time}</span>
                   </div>
                 </div>
-                {event.form && new Date(event.to || event.date).getTime() >= new Date().setHours(0,0,0,0) && (
+                {event.formLink && new Date(event.to ?? event.date!).getTime() >= new Date().setHours(0,0,0,0) && (
                   <div className="mt-4">
                     <Button asChild size="sm" className="w-full bg-[#ff8c42] hover:bg-[#e67220] text-white">
-                      <Link href={event.form} target="_blank" rel="noopener noreferrer">
+                      <Link href={event.formLink} target="_blank" rel="noopener noreferrer">
                         Register Now
                       </Link>
                     </Button>

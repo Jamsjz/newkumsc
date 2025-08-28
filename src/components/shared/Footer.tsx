@@ -3,7 +3,7 @@ import { Calculator, MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Externa
 import clubData from '@/data/clubInfo.json';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  
 
   return (
     <footer style={{backgroundColor: 'var(--footer-bg)'}} className="text-white">
