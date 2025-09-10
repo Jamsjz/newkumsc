@@ -61,10 +61,14 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
   const upcomingEvents = filteredEvents.filter(event => {
     const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
     return eventEndDate.getTime() >= now;
-  });
+  }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   const pastEvents = filteredEvents.filter(event => {
     const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
     return eventEndDate.getTime() < now;
+  }).sort((a, b) => {
+    const aDate = a.to ? new Date(a.to) : new Date(a.date);
+    const bDate = b.to ? new Date(b.to) : new Date(b.date);
+    return bDate.getTime() - aDate.getTime();
   });
 
   return (

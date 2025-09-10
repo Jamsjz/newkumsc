@@ -1,11 +1,8 @@
 ---
-title: Find Mathematics
-date: "2025-06-09"
-description: "Find What you like!"
+title: "Call for Bismaya Editorial Board 2025"
+date: "2025-04-26"
+description: ""
+banner: "/images/notices/1.webp"
+category: "Magazine"
+tags: ["Bismaya", "Member Selection"]
 ---
-
-# This is very good
-
-Hello
-
-$f(x)=\\sin(x)+\\frac{1}{2}$

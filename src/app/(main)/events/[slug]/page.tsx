@@ -1,6 +1,11 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, Clock, MapPin, Users, ArrowRight } from "lucide-react";
+import {
+  CalendarDays,
+  Clock,
+  MapPin,
+  Users,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { unified } from "unified";
@@ -9,6 +14,7 @@ import remarkHtml from "remark-html";
 
 import { getSinglePost, getAllFrontMatter } from "@/lib/markdown";
 import ClientMarkdownRenderer from "@/components/shared/ClientMarkdownRenderer";
+import { EventBanner } from "@/components/features/events/EventBanner";
 
 // Standardized PageProps type for dynamic routes
 type PageProps = {
@@ -41,7 +47,8 @@ export default async function SingleEventPage({ params }: PageProps) {
     notFound();
   }
 
-  const isFutureEvent = new Date(post.fm.date).getTime() >= new Date().setHours(0,0,0,0);
+  const isFutureEvent =
+    new Date(post.fm.date).getTime() >= new Date().setHours(0, 0, 0, 0);
 
   const htmlContent = await unified()
     .use(remarkParse)
@@ -89,14 +96,24 @@ export default async function SingleEventPage({ params }: PageProps) {
           {post.fm.attendees && post.fm.maxAttendees && (
             <div className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              <span>{post.fm.attendees}/{post.fm.maxAttendees} attendees</span>
+              <span>
+                {post.fm.attendees}/{post.fm.maxAttendees} attendees
+              </span>
             </div>
           )}
         </div>
         {isFutureEvent && post.fm.form && (
           <div className="mt-8 text-center">
-            <Button asChild size="lg" className="bg-[#ff8c42] hover:bg-[#e67220] text-white">
-              <Link href={post.fm.form} target="_blank" rel="noopener noreferrer">
+            <Button
+              asChild
+              size="lg"
+              className="bg-[#ff8c42] hover:bg-[#e67220] text-white"
+            >
+              <Link
+                href={post.fm.form}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Register Now <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -105,20 +122,7 @@ export default async function SingleEventPage({ params }: PageProps) {
       </header>
 
       <article>
-        {post.fm.image && (
-          <div className="mb-12">
-            <div className="relative aspect-[16/8] w-full overflow-hidden rounded-xl">
-              <Image
-                src={post.fm.image}
-                alt={`${post.fm.title} banner`}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-          </div>
-        )}
+        {post.fm.image && <EventBanner imageUrl={post.fm.image} title={post.fm.title} />}
         <ClientMarkdownRenderer htmlContent={htmlContent.toString()} />
       </article>
     </main>

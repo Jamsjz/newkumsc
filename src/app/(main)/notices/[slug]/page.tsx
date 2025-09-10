@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CalendarDays } from "lucide-react";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
-
 import { getSinglePost, getAllFrontMatter } from "@/lib/markdown";
 import ClientMarkdownRenderer from "@/components/shared/ClientMarkdownRenderer";
+import { NoticeBanner } from "@/components/features/notices/NoticeBanner";
 
 // Standardized PageProps type using your specific fix
 type PageProps = {
@@ -44,23 +43,12 @@ export default async function SingleNoticePage({ params }: PageProps) {
     .use(remarkHtml)
     .process(post.content);
 
+  const imageUrl = (post.fm.noticeImage || post.fm.banner) as string;
+
   return (
     <main className="container mx-auto max-w-4xl px-4 py-12 sm:px-6 md:px-8">
       <article>
-        {(post.fm.noticeImage || post.fm.banner) && (
-          <div className="mb-12">
-            <div className="relative aspect-[16/8] w-full overflow-hidden rounded-xl">
-              <Image
-                src={(post.fm.noticeImage || post.fm.banner) as string}
-                alt={`${post.fm.title} banner`}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-          </div>
-        )}
+        {imageUrl && <NoticeBanner imageUrl={imageUrl} title={post.fm.title} />}
 
         <header className="mb-8 text-center">
           <h1 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">

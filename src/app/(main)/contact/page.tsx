@@ -18,7 +18,8 @@ const Contact: React.FC = () => {
     year: '',
     major: '',
     interests: [] as string[],
-    message: ''
+    message: '',
+    purpose: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,8 +87,8 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSelectChange = (value: string) => {
-    setFormData(prev => ({ ...prev, year: value }));
+  const handleSelectChange = (value: string, field: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const handleInterestChange = (interest: string) => {
@@ -142,7 +143,8 @@ const Contact: React.FC = () => {
             year: '',
             major: '',
             interests: [],
-            message: ''
+            message: '',
+            purpose: ''
           });
         }, 3000);
       } else {
@@ -352,7 +354,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <Label htmlFor="year">Academic Year *</Label>
-                      <Select onValueChange={handleSelectChange} value={formData.year} required>
+                      <Select onValueChange={(value) => handleSelectChange(value, 'year')} value={formData.year} required>
                         <SelectTrigger className="w-full px-4 py-3 border border-[#6b8891]/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff8c42] focus:border-transparent">
                           <SelectValue placeholder="Select your year" />
                         </SelectTrigger>
@@ -365,6 +367,22 @@ const Contact: React.FC = () => {
                         </SelectContent>
                       </Select>
                     </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="purpose">Purpose of Contact *</Label>
+                    <Select onValueChange={(value) => handleSelectChange(value, 'purpose')} value={formData.purpose} required>
+                      <SelectTrigger className="w-full px-4 py-3 border border-[#6b8891]/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff8c42] focus:border-transparent">
+                        <SelectValue placeholder="Select a purpose" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Membership Inquiry">Membership Inquiry</SelectItem>
+                        <SelectItem value="Volunteering">Volunteering</SelectItem>
+                        <SelectItem value="Sponsorship/Partnership">Sponsorship/Partnership</SelectItem>
+                        <SelectItem value="Event Suggestion">Event Suggestion</SelectItem>
+                        <SelectItem value="General Inquiry">General Inquiry</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
