@@ -44,7 +44,7 @@ export default async function RootLayout({
 }>) {
   const notices = getAllFrontMatter("notices")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3).map((notice) => ({
+    .map((notice) => ({
       ...notice,
       type: "notice" as const,
     }));

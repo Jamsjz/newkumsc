@@ -29,7 +29,7 @@ export function ImageModal({ imageUrl, alt, children }: ImageModalProps) {
       <DialogContent
         className="p-4 bg-background/90 backdrop-blur-sm border-0 shadow-lg max-w-screen-xl w-auto h-auto"
       >
-        <div className="relative mt-8 overflow-hidden">
+        <div className="relative mt-8 overflow-hidden" onClick={(e) => e.stopPropagation()}>
           <Image
             src={imageUrl}
             alt={alt}
@@ -43,10 +43,7 @@ export function ImageModal({ imageUrl, alt, children }: ImageModalProps) {
               transform: zoom ? "scale(2)" : "scale(1)",
               transformOrigin: `${position.x}% ${position.y}%`,
             }}
-            onClick={(e) => {
-              e.stopPropagation();
-              setZoom(!zoom);
-            }}
+            onClick={() => setZoom(!zoom)}
             onMouseMove={handleMouseMove}
           />
         </div>

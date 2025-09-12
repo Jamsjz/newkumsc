@@ -8,6 +8,7 @@ import Link from "next/link";
 import { NotepadTextIcon, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ImageModal } from "./ImageModal";
 
 export interface SearchProps {
   events: ContentItem[];
@@ -20,6 +21,7 @@ interface ContentItem {
   title: string;
   description: string;
   image?: string;
+  banner?: string;
   type: "event" | "notice";
 }
 
@@ -140,34 +142,57 @@ export function ExpandableSearch({ events, notices, onExpandChange }: SearchProp
               <div className="p-2">
                 {results.length > 0 ? (
                   results.map((item) => (
-                    <Link
+                    <div
                       key={`${item.type}-${item.slug}`}
-                      href={`/${item.type}s/${item.slug}`}
-                      onClick={handleResultClick}
-                      className="block"
+                      className="flex cursor-pointer items-start gap-4 rounded-lg p-3 text-left transition-colors hover:bg-muted/50"
                     >
-                      <div className="flex cursor-pointer items-start gap-4 rounded-lg p-3 text-left transition-colors hover:bg-muted/50">
-                        <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md">
-                          {item.image ? (
+                      <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md">
+                        {item.banner ? (
+                          item.type === "notice" ? (
+                            <ImageModal
+                              imageUrl={item.banner}
+                              alt={item.title}
+                            >
+                              {(openModal) => (
+                                <Image
+                                  src={item.banner!}
+                                  alt={item.title}
+                                  fill
+                                  className="object-cover cursor-pointer"
+                                  sizes="64px"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    openModal();
+                                  }}
+                                />
+                              )}
+                            </ImageModal>
+                          ) : (
                             <Image
-                              src={item.image}
+                              src={item.banner}
                               alt={item.title}
                               fill
                               className="object-cover"
                               sizes="64px"
                             />
-                          ) : (
-                            <NotepadTextIcon className="h-16 w-16 text-muted-foreground" />
-                          )}
-                        </div>
-                        <div className="flex-1">
+                          )
+                        ) : (
+                          <NotepadTextIcon className="h-16 w-16 text-muted-foreground" />
+                        )}
+                      </div>
+                      <Link
+                        href={`/${item.type}s/${item.slug}`}
+                        className="block flex-1"
+                      >
+                        <div onClick={handleResultClick}>
                           <p className="font-semibold">{item.title}</p>
                           <p className="text-sm text-muted-foreground line-clamp-2">
                             {item.description}
                           </p>
                         </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   ))
                 ) : (
                   <div className="p-4 text-center text-sm text-muted-foreground">
