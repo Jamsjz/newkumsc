@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import {
   CalendarDays,
   Clock,
@@ -14,7 +15,7 @@ import remarkHtml from "remark-html";
 
 import { getSinglePost, getAllFrontMatter } from "@/lib/markdown";
 import ClientMarkdownRenderer from "@/components/shared/ClientMarkdownRenderer";
-import { EventBanner } from "@/components/features/events/EventBanner";
+
 
 // Standardized PageProps type for dynamic routes
 type PageProps = {
@@ -122,7 +123,7 @@ export default async function SingleEventPage({ params }: PageProps) {
       </header>
 
       <article>
-        {post.fm.image && <EventBanner imageUrl={post.fm.image} title={post.fm.title} />}
+        {post.fm.banner && <Image src={post.fm.banner} alt={post.fm.title} width={1200} height={630} className="w-full h-auto object-cover rounded-lg shadow-lg mb-8" />}
         <ClientMarkdownRenderer htmlContent={htmlContent.toString()} />
       </article>
     </main>

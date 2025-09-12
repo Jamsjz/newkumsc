@@ -39,7 +39,7 @@ export default function HomePage() {
 		maxAttendees: event.maxAttendees || 0,
 		speaker: event.speaker || "N/A",
 		featured: event.featured || false,
-		image: event.image || "",
+		
 		registrationOpen: event.registrationOpen || false,
 		price: event.price || "Free",
 		prerequisites: event.prerequisites || "N/A",

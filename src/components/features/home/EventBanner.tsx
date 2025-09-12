@@ -51,9 +51,9 @@ export function EventBanner({ events = [] }: { events: FrontMatter[] }) {
           <CarouselItem key={idx} className="basis-full">
             <Card className="rounded-none border-none">
               <CardContent className="relative p-0 h-[50vh] sm:h-[60vh] md:h-[75vh]">
-                {event.image && (
+                {event.banner && (
                   <Image
-                    src={event.image}
+                    src={event.banner}
                     alt={event.title}
                     fill
                     priority={idx === 0}

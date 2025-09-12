@@ -148,10 +148,10 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
               {upcomingEvents.map((event) => (
                 <Link href={`/events/${event.slug}`} key={event.slug}>
                   <div className="bg-[#f4f1de] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    {event.image && (
+                    {event.banner && (
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
-                        src={event.image}
+                        src={event.banner}
                         alt={event.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -214,10 +214,10 @@ const EventsClient: React.FC<EventsClientProps> = ({ initialEvents }) => {
               {pastEvents.map((event) => (
                 <Link href={`/events/${event.slug}`} key={event.slug}>
                   <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    {event.image && (
+                    {event.banner && (
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
-                        src={event.image}
+                        src={event.banner}
                         alt={event.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"

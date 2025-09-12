@@ -20,7 +20,7 @@ interface EventItem {
   maxAttendees: number;
   speaker: string;
   featured: boolean;
-  image: string;
+  banner?: string;
   registrationOpen: boolean;
   price: string;
   prerequisites: string;
