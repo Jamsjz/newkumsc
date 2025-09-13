@@ -48,8 +48,7 @@ export default function HomePage() {
 	}));
 
 	// Map past events for EventBanner
-	const recentEventsForBanner = pastEvents.slice(0, 4);
-
+	const recentEventsForBanner = pastEvents.reverse();
 	return (
 		<main className="flex flex-col gap-10 md:gap-16 animate__animated animate__fadeIn">
 			<section>
