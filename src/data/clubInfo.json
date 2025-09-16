@@ -1,15 +1,15 @@
 {
   "clubInfo": {
     "name": "KU Math Club",
-    "fullName": "Kathmandu University Mathematics Club",
+    "fullName": "Kathmandu University Mathematics Students Club",
     "department": "Department of Mathematics",
     "university": "Kathmandu University",
     "established": "2017",
     "mission": "To foster a vibrant community of mathematical thinkers, innovators, and problem-solvers who contribute meaningfully to the advancement of mathematical knowledge and its applications in real-world scenarios.",
     "vision": "To be the leading mathematics club in Nepal, recognized for producing outstanding mathematical minds who contribute to global scientific advancement and social progress.",
     "contact": {
-      "email": "mathclub@ku.edu.np",
-      "phone": "+977-11-490909",
+      "email": "mathsclub@ku.edu.np",
+      "phone": "+9779765039658",
       "address": {
         "line1": "Department of Mathematics",
         "line2": "Kathmandu University",
@@ -67,32 +67,42 @@
       "color": "bg-[#ff8c42]"
     },
     {
-      "year": "2019",
-      "title": "First Bismaya Issue",
-      "description": "Launched our flagship mathematical magazine with student contributions.",
-      "icon": "BookOpen",
-      "color": "bg-[#264653]"
-    },
-    {
-      "year": "2021",
-      "title": "National Recognition",
-      "description": "Won first place in the National Mathematical Modeling Competition.",
-      "icon": "Trophy",
+      "year": "2023",
+      "title": "Annual Event: Infinity",
+      "description": "Hosted our first major event, attracting participants from across the region.",
+      "icon": "Target",
       "color": "bg-[#c41e3a]"
     },
-    {
+
+        {
       "year": "2023",
-      "title": "Community Outreach",
-      "description": "Expanded our impact through mathematical literacy programs.",
+      "title": "Mathematics Olympiad",
+      "description": "Organized a successful mathematics competition for high school students.",
       "icon": "Users",
+      "color": "bg-[#ffd700]"
+    },
+
+    {
+      "year": "2024",
+      "title": "National Conference on Data and Computing",
+      "description": "Successfully hosted a national-level conference with renowned speakers.",
+      "icon": "Target",
+      "color": "bg-[#ff8c42]"
+    },
+    {
+      "year": "2025",
+      "title": "International Conference on Non Linear Analysis and Optimization",
+      "description": "Organized an international conference bringing together experts in non-linear analysis and optimization.",
+      "icon": "Target",
       "color": "bg-[#ffd700]"
     },
     {
       "year": "2025",
-      "title": "Future Vision",
-      "description": "Continuing to inspire mathematical excellence and innovation.",
-      "icon": "Target",
+      "title": "AESIM School 2025 on Cryptography for 21st Century",
+      "description": "Two day workshop on Quantum Computing with hands-on sessions and expert lectures.",
+      "icon": "Users",
       "color": "bg-[#ff8c42]"
     }
+
   ]
 }

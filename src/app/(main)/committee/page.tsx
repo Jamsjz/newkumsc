@@ -97,13 +97,19 @@ const Leadership: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {leadershipData.advisoryBoard.map((advisor, index) => (
               <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-                <Image
-                  src={advisor.image}
-                  alt={advisor.name}
-                  width={96}
-                  height={96}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg"
-                />
+                {advisor.image ? (
+                  <Image
+                    src={advisor.image}
+                    alt={advisor.name}
+                    width={96}
+                    height={96}
+                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                  />
+                ) : (
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-gray-200 flex items-center justify-center shadow-lg">
+                    <Users className="h-8 w-8 text-gray-500" />
+                  </div>
+                )}
                 <h3 className="text-xl font-bold text-[#2f3033] mb-2">{advisor.name}</h3>
                 <div className="text-[#ff8c42] font-semibold mb-1">{advisor.position}</div>
                 <div className="text-[#6b8891] text-sm mb-3">{advisor.department}</div>

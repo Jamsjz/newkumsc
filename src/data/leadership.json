@@ -4,7 +4,7 @@
       {
         "name": "Shubheeksha Shrestha",
         "position": "President",
-        "year": "N/A",
+        "year": "3",
         "major": "CM",
         "bio": "No bio available.",
         "achievements": [],
@@ -52,12 +52,12 @@
       {
         "name": "Sabin Pokharel",
         "position": "Treasurer",
-        "year": "N/A",
+        "year": "3",
         "major": "CM",
         "bio": "No bio available.",
         "achievements": [],
         "email": "savinpokharel@gmail.com",
-        "linkedin": "https://linkedin.com/company/kumsc",
+        "linkedin": "https://www.linkedin.com/in/sapienskid/",
         "image": "/images/Committe/sabin_cm.jpg",
         "color": "bg-gray-500"
       },
@@ -149,51 +149,44 @@
   },
   "advisoryBoard": [
     {
-      "name": "Prof. Dr. Ramesh Khanal",
+      "name": "Prof. Dr. Rabindra Kyastha",
+      "position": "Head Of Department",
+      "department": "Department of Mathematics",
+      "specialization": "Statistics and Probability",
+      "bio": "",
+      "image": "https://cdn.ku.edu.np/Enovaqen_xnlnfgun1648187774.cat/1/130/120"
+    },
+    {
+      "name": "Mr. Kiran Kumar Shrestha",
       "position": "Faculty Advisor",
       "department": "Department of Mathematics",
-      "specialization": "Differential Equations & Mathematical Modeling",
-      "bio": "Veteran mathematician with 25+ years of experience. Guides club initiatives and provides academic mentorship.",
-      "image": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400"
-    },
-    {
-      "name": "Dr. Sita Pokharel",
-      "position": "Research Advisor",
-      "department": "Department of Mathematics",
       "specialization": "Statistics & Data Science",
-      "bio": "Leading researcher in statistical methods. Supervises student research projects and publication initiatives.",
-      "image": "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400"
+      "bio": "",
+      "image": ""
     },
     {
-      "name": "Prof. Hari Prasad Regmi",
-      "position": "Honorary Advisor",
-      "department": "Department Head",
-      "specialization": "Pure Mathematics & Topology",
-      "bio": "Distinguished mathematician and department head. Provides strategic guidance for club development.",
-      "image": "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400"
+      "name": "Mr. Aayam Basyal",
+      "position": "Advisor",
+      "department": "Department of Mathematics",
+      "specialization": "Reinforcement Learning | Computational Mathematics",
+      "bio": "Computational Mathematics Graduate and Past President of Kathmandu University Mathematics Students Club",
+      "image": "https://media.licdn.com/dms/image/v2/D4D03AQEOMDE7dy-vXw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701498842095?e=1761177600&v=beta&t=tumFJpIHWfSx7FH5WNKZQlEF0-JcGyBhOazJ6HLFLhc"
     }
   ],
   "pastLeaders": [
     {
-      "name": "Dr. Kiran Bajracharya",
-      "position": "Former President (2020-2021)",
-      "current": "PhD in Applied Mathematics, MIT",
-      "achievement": "Founded Bismaya Magazine",
-      "image": "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400"
+      "name": "Mr. Mukesh Tiwari",
+      "position": "Former President(2023-2024)",
+      "current": "Research Engineer Alpen Labs",
+      "achievement": "Started Infinity",
+      "image": "https://media.licdn.com/dms/image/v2/D5603AQEUTWCE7Cl7-Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1674790591301?e=1761177600&v=beta&t=HtINllu7xzHUPuyR4kqTNGXaxvEvmmwl3r-xPAvUzVo"
     },
     {
-      "name": "Shreya Paudel",
-      "position": "Former Vice President (2019-2020)",
-      "current": "Data Scientist at Google",
+      "name": "Mr. Aayam Basyal",
+      "position": "Former Vice President (2024-2025)",
+      "current": "Computational Mathematics",
       "achievement": "Established Outreach Program",
-      "image": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400"
-    },
-    {
-      "name": "Arun Maharjan",
-      "position": "Former Academic Coordinator (2021-2022)",
-      "current": "Research Analyst at World Bank",
-      "achievement": "National Competition Winner",
-      "image": "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400"
+      "image": "https://media.licdn.com/dms/image/v2/D4D03AQEOMDE7dy-vXw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701498842095?e=1761177600&v=beta&t=tumFJpIHWfSx7FH5WNKZQlEF0-JcGyBhOazJ6HLFLhc"
     }
   ]
 }
