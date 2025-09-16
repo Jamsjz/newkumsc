@@ -3,68 +3,129 @@
   ],
   "tiers": [
     {
-      "name": "Platinum",
-      "price": "NPR 300,000+",
+      "name": "Diamond Partner",
+      "price": "NPR 250,000+",
+      "color": "bg-gradient-to-r from-blue-600 to-purple-600",
+      "textColor": "text-white",
+      "benefits": [
+        "Exclusive title of 'Infinity Diamond Partner' for Infinity 2025",
+        "Most prominent logo placement on all materials with 'Proudly Supported by' designation",
+        "Featured full-page advertisement in all event booklets and digital materials",
+        "Premium booth/stall location at Infinity 2025",
+        "Opportunity to deliver keynote address at Infinity 2025 main day",
+        "Exclusive right to host your own event",
+        "First access to student recruitment opportunities",
+        "Feature story in annual department magazine and all KUMSC social media",
+        "Recognition plaque and logo placement on KUMSC merchandise"
+      ]
+    },
+    {
+      "name": "Platinum Partner",
+      "price": "NPR 150,000 - 249,999",
       "color": "bg-gradient-to-r from-gray-300 to-gray-100",
       "textColor": "text-gray-800",
       "benefits": [
-        "Prime logo placement on all event materials",
-        "Speaking opportunity at flagship events",
-        "Dedicated booth space at Infinity festival",
-        "Recruiting access to top mathematics students",
-        "Naming rights for a major competition or award",
-        "Year-round brand visibility on website and publications"
+        "Prominent logo placement on club website, banners, and promotional materials",
+        "Named sponsorship of one major event (Mathematical Olympiad or Talk Series)",
+        "Booth/stall at Infinity 2025",
+        "Invitations to networking events with KUMSC members",
+        "Acknowledgment in all event communications",
+        "Social media featured posts",
+        "Recognition plaque and logo on selected Infinity 2025 merchandise"
       ]
     },
     {
-      "name": "Gold",
-      "price": "NPR 150,000 - 300,000",
+      "name": "Gold Partner",
+      "price": "NPR 75,000 - 149,999",
       "color": "bg-gradient-to-r from-yellow-500 to-yellow-300",
       "textColor": "text-yellow-900",
       "benefits": [
-        "Prominent logo display on event materials",
-        "Sponsor recognition at all major events",
-        "Booth space at Infinity festival",
-        "Opportunity to host a workshop session",
-        "Featured in Bismaya magazine",
-        "Social media promotion package"
+        "Logo placement on event promotional materials and website with backlinks",
+        "Booth/stall at Infinity 2025",
+        "Invitation to judge competitions",
+        "Acknowledgment during opening/closing ceremonies",
+        "Social media recognition",
+        "Recognition plaque"
       ]
     },
     {
-      "name": "Silver",
-      "price": "NPR 75,000 - 150,000",
+      "name": "Silver Partner",
+      "price": "NPR 30,000 - 74,999",
       "color": "bg-gradient-to-r from-gray-400 to-gray-300",
       "textColor": "text-gray-800",
       "benefits": [
-        "Logo on all digital materials",
-        "Sponsor recognition at selected events",
-        "Distribution of promotional materials",
-        "Invitation to networking events",
-        "Featured in club newsletter"
+        "Logo placement on event promotional materials and club website listing",
+        "Verbal recognition at events",
+        "Social media mention",
+        "Certificate of appreciation"
       ]
     },
     {
-      "name": "Bronze",
-      "price": "NPR 30,000 - 75,000",
+      "name": "Bronze Partner",
+      "price": "NPR 10,000 - 29,999",
       "color": "bg-gradient-to-r from-amber-700 to-amber-500",
       "textColor": "text-white",
       "benefits": [
-        "Logo on website and digital programs",
-        "Recognition at one selected event",
-        "Invitation to annual sponsor appreciation dinner",
-        "Listed in Bismaya magazine acknowledgments"
+        "Name listed on club website",
+        "Logo placement on event promotional materials",
+        "Acknowledgment in event programs",
+        "Certificate of appreciation"
       ]
     },
     {
-      "name": "In-Kind",
+      "name": "Equipment Sponsor",
+      "price": "Market Value: NPR 10,000+",
+      "color": "bg-gradient-to-r from-blue-600 to-blue-400",
+      "textColor": "text-white",
+      "benefits": [
+        "Equipment displays 'Provided by [Sponsor]' tags",
+        "Featured in 'Technology Partners' section on website (Tier 1: NPR 50,000+)",
+        "Photos of equipment in use shared on social media",
+        "Benefits tier based on equipment market value",
+        "Special recognition for computing hardware, cameras, and AV equipment"
+      ]
+    },
+    {
+      "name": "Refreshment Sponsor",
+      "price": "NPR 30,000 - 100,000",
+      "color": "bg-gradient-to-r from-orange-600 to-orange-400",
+      "textColor": "text-white",
+      "benefits": [
+        "Exclusive designation as 'Official Refreshment Partner'",
+        "Branding on food and beverage stations at sponsored events",
+        "Opportunity to distribute product samples to participants",
+        "Speaking opportunity during event breaks",
+        "Logo on event materials with 'Refreshments provided by' designation",
+        "Benefits comparable to Gold Partner tier"
+      ]
+    },
+    {
+      "name": "Event-Specific Sponsor",
+      "price": "NPR 30,000 - 200,000",
+      "color": "bg-gradient-to-r from-purple-600 to-purple-400",
+      "textColor": "text-white",
+      "benefits": [
+        "Named recognition for specific events (Hackathon, Olympiad, Workshops)",
+        "Judge positions at sponsored events",
+        "Distribution of company challenges",
+        "Recruiting opportunities from participant pool",
+        "Brand visibility throughout competition materials",
+        "Opportunity to suggest workshop topics and presenters"
+      ]
+    },
+    {
+      "name": "In-Kind Support",
       "price": "Product/Service Donations",
       "color": "bg-gradient-to-r from-emerald-600 to-emerald-400",
       "textColor": "text-white",
       "benefits": [
-        "Recognition level based on estimated value",
-        "Acknowledgment specific to provided resources",
-        "Potential for specialized branding opportunities",
-        "Custom partnership development"
+        "Venue provision for events",
+        "Refreshments for meetings and small events",
+        "Printing services for promotional materials",
+        "Transportation services",
+        "Software licenses and cloud computing resources",
+        "Books, educational resources, and competition prizes",
+        "Recognition level based on estimated value"
       ]
     }
   ]
