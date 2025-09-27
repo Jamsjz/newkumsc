@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/facebook-data
+/facebook_data
 /.pnp
 .pnp.*
 .yarn/*
