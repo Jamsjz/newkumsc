@@ -61,6 +61,11 @@ export function getAllFrontMatter(
       const raw = fs.readFileSync(filePath, "utf-8");
       const { data } = matter(raw); // Only parse data, ignore content for efficiency
 
+      // Handle tags: If tags are a string, split them into an array
+      if (typeof data.tags === "string") {
+        data.tags = data.tags.split(",").map((tag) => tag.trim());
+      }
+
       return {
         ...data,
         slug: file.replace(/\.mdx?$/, ""),
@@ -89,6 +94,11 @@ export function getAllPosts(contentType: "events" | "notices"): Post[] {
 
       // Use gray-matter to parse the file into front matter (data) and content
       const { data, content } = matter(raw);
+
+      // Handle tags: If tags are a string, split them into an array
+      if (typeof data.tags === "string") {
+        data.tags = data.tags.split(",").map((tag) => tag.trim());
+      }
 
       return {
         fm: {
@@ -135,6 +145,11 @@ export function getSinglePost(
 
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
+
+  // Handle tags: If tags are a string, split them into an array
+  if (typeof data.tags === "string") {
+    data.tags = data.tags.split(",").map((tag) => tag.trim());
+  }
 
   return {
     fm: {
