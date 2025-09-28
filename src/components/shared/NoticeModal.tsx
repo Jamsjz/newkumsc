@@ -42,6 +42,9 @@ const NoticeModal: React.FC<NoticeModalProps> = ({ notices }) => {
   if (notices.length === 0) {
     return null; // Don't render modal if no notices
   }
+	else if (notices.length > 5){
+		notices = notices.slice(0,4);
+	}
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
