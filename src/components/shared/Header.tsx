@@ -43,6 +43,7 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
     { name: 'Home', path: '/' },
     { name: 'Our Story', path: '/our-story' },
     { name: 'Events', path: '/events' },
+    { name: 'Gallery', path: '/gallery' },
     //{ name: 'Our Work', path: '/our-work' },
     { name: 'Committee', path: '/committee' },
     { name: 'Sponsors', path: '/sponsors' },
