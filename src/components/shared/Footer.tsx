@@ -43,10 +43,10 @@ const Footer: React.FC = () => {
               {[
                 { name: 'Our Story', href: '/our-story' },
                 { name: 'Upcoming Events', href: '/events#upcoming-events' },
-                { name: 'Bismaya Magazine', href: '#' },
+                { name: 'Bismaya Magazine', href: '/#bismaya' },
                 { name: 'Membership', href: '/contact#contact-form' },
                 { name: 'Contact Us', href: '/contact#contact-form' },
-                { name: 'Gallery', href: '#' }
+                { name: 'Gallery', href: '/gallery' }
               ].map((link) => (
                 <li key={link.name}>
                   <a href={link.href} style={{color: 'var(--footer-text)'}} className="hover:text-footer-accent transition-colors duration-200 flex items-center space-x-1 group">
@@ -65,8 +65,7 @@ const Footer: React.FC = () => {
               {[
                 { name: 'Mathematical Workshops', href: '/events?category=workshop' },
                 { name: 'Guest Lectures', href: '/events?category=lecture' },
-                { name: 'Competition Training', href: '/events?category=competition' },
-                { name: 'Research Projects', href: '/events?category=research' },
+                { name: 'Competition', href: '/events?category=competition' },
                 { name: 'Community Outreach', href: '/events?category=outreach' },
                 { name: 'Alumni Network', href: '/events?category=alumni' }
               ].map((program) => (

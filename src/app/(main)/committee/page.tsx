@@ -8,7 +8,7 @@ const Leadership: React.FC = () => {
   // const [activeYear, setActiveYear] = useState('2025'); // Future feature for year filtering
 
   return (
-    <div className="pt-16">
+    <div className="">
       <HeroSection
         title="Leadership"
         description="Meet the dedicated individuals who guide our club&apos;s vision, manage our initiatives, and inspire mathematical excellence."

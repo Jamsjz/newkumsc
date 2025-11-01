@@ -54,9 +54,7 @@ export default function HomePage() {
 			<section>
 				<Hero />
 			</section>
-			<section>
-				<QuickStats />
-			</section>
+
 			<section>
 				<h2 className="text-3xl font-bold tracking-tight text-center mb-8">Recent Events</h2>
 				<EventBanner events={recentEventsForBanner} />

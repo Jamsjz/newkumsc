@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from "sonner";
+import clubData from '@/data/clubInfo.json';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -39,45 +40,14 @@ const Contact: React.FC = () => {
     },
     {
       icon: BookOpen,
-      title: 'Research Opportunities',
+      title: 'Publication Opportunities',
       description: 'Engage in projects and contribute to publications like Bismaya.',
       color: 'bg-[#c41e3a]'
     },
     {
       icon: Award,
-      title: 'Mentorship Programs',
+      title: 'Mentorship Opportunities',
       description: 'Receive guidance from experienced faculty and alumni.',
-      color: 'bg-[#ffd700]'
-    }
-  ];
-
-  const volunteerOpportunities = [
-    {
-      title: 'Event Organizer',
-      description: 'Help plan and execute club events, from workshops to social gatherings.',
-      commitment: '5-10 hours/month',
-      skills: 'Organization, Communication',
-      color: 'bg-[#ff8c42]'
-    },
-    {
-      title: 'Content Creator',
-      description: 'Contribute to Bismaya magazine, social media, or website content.',
-      commitment: 'Flexible',
-      skills: 'Writing, Design, Research',
-      color: 'bg-[#264653]'
-    },
-    {
-      title: 'Academic Mentor',
-      description: 'Provide tutoring and academic support to fellow students.',
-      commitment: '2-4 hours/week',
-      skills: 'Subject Expertise, Patience',
-      color: 'bg-[#c41e3a]'
-    },
-    {
-      title: 'Outreach Ambassador',
-      description: 'Represent the club at university events and community programs.',
-      commitment: 'Ad-hoc',
-      skills: 'Public Speaking, Enthusiasm',
       color: 'bg-[#ffd700]'
     }
   ];
@@ -178,7 +148,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="">
       <HeroSection
         title="Get Involved"
         description="Join our vibrant mathematical community and be part of something extraordinary. Your journey in mathematics starts here."
@@ -237,65 +207,20 @@ const Contact: React.FC = () => {
                 <h4 className="text-lg font-semibold text-[#2f3033] mb-4">Process</h4>
                 <ol className="space-y-2 text-[#6b8891]">
                   <li className="flex items-start space-x-2">
-                    <span className="bg-[#ff8c42] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">1</span>
-                    <span>Submit membership application</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="bg-[#264653] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">2</span>
+                    <span className="bg-[#264653] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">1</span>
                     <span>Attend orientation session</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="bg-[#c41e3a] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">3</span>
+                    <span className="bg-[#c41e3a] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">2</span>
                     <span>Participate in welcome activities</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="bg-[#ffd700] text-[#2f3033] rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">4</span>
+                    <span className="bg-[#ffd700] text-[#2f3033] rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">3</span>
                     <span>Receive membership confirmation</span>
                   </li>
                 </ol>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Volunteer Opportunities */}
-      <section className="py-16 bg-[#f4f1de]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2f3033] mb-4">
-              Volunteer Opportunities
-            </h2>
-            <p className="text-lg text-[#6b8891] max-w-3xl mx-auto">
-              Make a difference in the mathematical community through various volunteer roles that match your interests and schedule.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {volunteerOpportunities.map((opportunity, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className={`${opportunity.color} w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0`}>
-                    <Heart className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-[#2f3033] mb-3">{opportunity.title}</h3>
-                    <p className="text-[#6b8891] mb-4 leading-relaxed">{opportunity.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-[#6b8891]">Time Commitment:</span>
-                        <div className="font-semibold text-[#2f3033]">{opportunity.commitment}</div>
-                      </div>
-                      <div>
-                        <span className="text-[#6b8891]">Skills Needed:</span>
-                        <div className="font-semibold text-[#2f3033]">{opportunity.skills}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -307,9 +232,6 @@ const Contact: React.FC = () => {
             {/* Form */}
             <div>
               <h2 className="text-3xl font-bold text-[#2f3033] mb-6">Get Involved</h2>
-              <p className="text-[#6b8891] mb-8 leading-relaxed">
-                Ready to become part of our mathematical family? Fill out the form below and we&apos;ll get back to you soon!
-              </p>
 
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -475,8 +397,8 @@ const Contact: React.FC = () => {
                   <Phone className="h-6 w-6 text-[#ff8c42] mt-1" />
                   <div>
                     <h4 className="font-semibold text-[#2f3033] mb-1">Call Us</h4>
-                    <p className="text-[#6b8891]">+977-11-490909</p>
-                    <p className="text-[#6b8891] text-sm">Office Hours: Mon-Fri, 9:00 AM - 5:00 PM</p>
+                    <p className="text-[#6b8891]">+977-9816386618, +977-9818715806</p>
+                    <p className="text-[#6b8891] text-sm">Hours: Mon-Fri, 9:00 AM - 5:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -484,13 +406,13 @@ const Contact: React.FC = () => {
               <div className="mt-8 pt-8 border-t border-[#6b8891]/20">
                 <h4 className="font-semibold text-[#2f3033] mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
+                  <a href={clubData.clubInfo.socialMedia.facebook} className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
                     <span className="text-sm font-bold">f</span>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
+                  <a href={clubData.clubInfo.socialMedia.instagram} className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
                     <span className="text-sm font-bold">ig</span>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
+                  <a href={clubData.clubInfo.socialMedia.linkedin} className="w-10 h-10 bg-[#264653] rounded-full flex items-center justify-center text-white hover:bg-[#1b3640] transition-colors duration-200">
                     <span className="text-sm font-bold">in</span>
                   </a>
                 </div>
@@ -512,6 +434,14 @@ const Contact: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
+              <div className="w-16 h-16 bg-[#ffd700] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8 text-[#2f3033]" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Talk Programs</h3>
+              <p className="text-[#6b8891] leading-relaxed">Help students pursue mathematical excellence and interactivity with professors worldwide</p>
+            </div>
+
+            <div className="text-center">
               <div className="w-16 h-16 bg-[#ff8c42] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-white" />
               </div>
@@ -520,26 +450,21 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#ffd700] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-[#2f3033]" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Scholarship Programs</h3>
-              <p className="text-[#6b8891] leading-relaxed">Help deserving students pursue mathematical excellence</p>
-            </div>
-
-            <div className="text-center">
               <div className="w-16 h-16 bg-[#264653] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Heart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Research Support</h3>
-              <p className="text-[#6b8891] leading-relaxed">Fund student research projects and publications</p>
+              <h3 className="text-xl font-bold mb-3">Volunteering</h3>
+              <p className="text-[#6b8891] leading-relaxed">Volunteering in club activities, talks and events</p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-              Learn About Partnership
-            </Button>
+						<a href="/sponsors#sponsor-opp">
+							<Button className="bg-[#ff8c42] hover:bg-[#e67220] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+								Learn About Partnership
+							</Button>
+						</a>
+              
           </div>
         </div>
       </section>

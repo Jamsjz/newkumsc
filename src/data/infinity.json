@@ -1,0 +1,49 @@
+{
+  "title": "KU Infinity",
+  "description": "KU Infinity is an annual event organized by KUMSC. It is a week-long event that includes a variety of programs, including a hackathon, workshops, and a gaming competition.",
+  "events": [
+    {
+      "year": 2024,
+      "title": "KU Infinity 2024",
+      "description": "KU Infinity 2024 was a week-long event that included a hackathon, workshops, and a gaming competition.",
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "subEvents": [
+        {
+          "title": "Formal Event",
+          "description": "The grand opening of KU Infinity, held in the university auditorium.",
+          "image": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Hackathon",
+          "description": "A 24-hour coding competition where students build innovative projects.",
+          "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Math Olympiad",
+          "description": "A challenging competition for mathematics enthusiasts.",
+          "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Games",
+          "description": "A variety of fun and engaging games for everyone to enjoy.",
+          "image": "https://images.unsplash.com/photo-1580327369454-b924214f3e96?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Stalls",
+          "description": "Food, merchandise, and informational stalls from various clubs and sponsors.",
+          "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Flash Mob",
+          "description": "A surprise dance performance by our talented students.",
+          "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "title": "Acoustic Night",
+          "description": "A beautiful and relaxing evening with live acoustic music.",
+          "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    }
+  ]
+}

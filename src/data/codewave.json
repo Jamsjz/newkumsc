@@ -1,0 +1,12 @@
+{
+  "title": "KU Codewave",
+  "description": "KU Codewave is an annual event organized by KUMSC. It is a week-long event that includes a variety of programs, including a hackathon, workshops, and a gaming competition.",
+  "events": [
+    {
+      "year": 2024,
+      "title": "KU Codewave 2024",
+      "description": "KU Codewave 2024 was a week-long event that included a hackathon, workshops, and a gaming competition.",
+      "image": "/images/events/2024-002.jpg"
+    }
+  ]
+}

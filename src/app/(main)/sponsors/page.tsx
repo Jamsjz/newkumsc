@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Building, Users, Award, ChevronRight, Globe, Mail, Phone, Handshake } from 'lucide-react';
@@ -7,12 +7,107 @@ import HeroSection from '@/components/shared/HeroSection';
 import sponsorsData from '@/data/sponsors.json';
 import { Sponsor } from '@/lib/data';
 
+type PieSlice = {
+  label: string;
+  value: number;
+  color: string;
+};
+
+type PieChartProps = {
+  data: PieSlice[];
+};
+
+export const PieChart: React.FC<PieChartProps> = ({ data }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const parent = canvas.parentElement;
+    if (!parent) return;
+
+    const resizeCanvas = () => {
+      canvas.width = parent.clientWidth;
+      canvas.height = parent.clientHeight;
+      drawChart();
+    };
+
+    const drawChart = () => {
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const total = data.reduce((sum, item) => sum + item.value, 0);
+      let startAngle = 0;
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      const radius = Math.min(canvas.width, canvas.height) / 2.5;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "16px serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      data.forEach((slice) => {
+        const sliceAngle = (slice.value / total) * 2 * Math.PI;
+        const endAngle = startAngle + sliceAngle;
+
+        // Draw slice
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = slice.color;
+        ctx.fill();
+
+        // Outline
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Label
+        const midAngle = startAngle + sliceAngle / 2;
+        const textX = cx + Math.cos(midAngle) * (radius * 0.7);
+        const textY = cy + Math.sin(midAngle) * (radius * 0.7);
+        const percentage = ((slice.value / total) * 100).toFixed(0) + "%";
+
+        ctx.fillStyle = "#000";
+        ctx.fillText(percentage, textX, textY);
+
+        // Outer label
+        const outerX = cx + Math.cos(midAngle) * (radius * 1.3);
+        const outerY = cy + Math.sin(midAngle) * (radius * 1.3);
+        ctx.fillText(slice.label, outerX, outerY);
+
+        startAngle = endAngle;
+      });
+    };
+
+    resizeCanvas(); // Initial draw
+
+    window.addEventListener('resize', resizeCanvas);
+    return () => window.removeEventListener('resize', resizeCanvas);
+  }, [data]);
+
+  return <canvas ref={canvasRef} className="w-full h-full" />;
+};
+
+
+
 const Sponsors: React.FC = () => {
   const currentSponsors: Sponsor[] = sponsorsData.sponsors;
   const sponsorshipTiers = sponsorsData.tiers;
-
+  const allocationData =  [
+    { label: "Major Events", value: 30, color: "#6666ff" },
+    { label: "Educational Programs", value: 25, color: "#33ccff" },
+    { label: "Conference & Research", value: 15, color: "#fff380" },
+    { label: "Community Outreach", value: 10, color: "#ffb266" },
+    { label: "Club Development", value: 10, color: "#ff6666" },
+    { label: "Promotional Materials", value: 5, color: "#66a3ff" },
+    { label: "Administrative", value: 5, color: "#99d8d0" },
+  ];
   return (
-    <div className="pt-16">
+    <div className="">
       <HeroSection
         title="Partner with Excellence"
         description="Support mathematical innovation and connect with Nepal's brightest mathematics talent"
@@ -79,7 +174,7 @@ const Sponsors: React.FC = () => {
       <section className="py-16 bg-[#f4f1de]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-[#2f3033] mb-4">Sponsorship Opportunities</h2>
+            <h2 className="text-3xl font-bold text-[#2f3033] mb-4" id="sponsor-opp">Sponsorship Opportunities</h2>
             <p className="text-lg text-[#4a6670]">
               We offer various levels of sponsorship to fit your organization&apos;s goals and budget. 
               Each tier provides unique benefits and opportunities to connect with our community.
@@ -182,30 +277,9 @@ const Sponsors: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-[#f4f1de] rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-[#2f3033] mb-6">Your Sponsorship Impact</h3>
-              
-              <div className="space-y-6">
-                <div className="bg-white p-4 rounded-lg">
-                  <div className="text-4xl font-bold text-[#ff8c42] mb-2">300+</div>
-                  <p className="text-[#4a6670]">Students supported through scholarships and competition opportunities</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg">
-                  <div className="text-4xl font-bold text-[#ff8c42] mb-2">5</div>
-                  <p className="text-[#4a6670]">Major events annually made possible by sponsor contributions</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg">
-                  <div className="text-4xl font-bold text-[#ff8c42] mb-2">95%</div>
-                  <p className="text-[#4a6670]">Of members report improved career outcomes through club activities</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg">
-                  <div className="text-4xl font-bold text-[#ff8c42] mb-2">20+</div>
-                  <p className="text-[#4a6670]">Research projects and publications supported each year</p>
-                </div>
-              </div>
+            <div className="bg-[#f4f1de] rounded-xl p-8 items-center min-h-[300px]">
+              <h3 className="text-2xl font-bold text-[#2f3033] mb-6">Your Sponsorship Allocation</h3>
+							<PieChart data={allocationData} />
             </div>
           </div>
         </div>
@@ -239,11 +313,11 @@ const Sponsors: React.FC = () => {
             <div className="mt-8 flex items-center justify-center gap-8">
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-[#ff8c42]" />
-                <span>sponsorship@kumathsclub.edu.np</span>
+                <span>kumsc@ku.edu.np</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-[#ff8c42]" />
-                <span>+977 01-234-5680</span>
+                <span>+977 9823644469</span>
               </div>
             </div>
           </div>

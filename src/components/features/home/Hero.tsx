@@ -105,30 +105,6 @@ const Hero: React.FC = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <CardContent className="p-0">
-                <div className="flex items-center justify-center w-12 h-12 bg-[#264653] rounded-lg mb-4 mx-auto">
-                  <Trophy className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#2f3033] mb-1">{animatedStats.projects}+</div>
-                  <div className="text-[#6b8891] font-medium">Projects</div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <CardContent className="p-0">
-                <div className="flex items-center justify-center w-12 h-12 bg-[#c41e3a] rounded-lg mb-4 mx-auto">
-                  <BookOpen className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#2f3033] mb-1">{animatedStats.years}+</div>
-                  <div className="text-[#6b8891] font-medium">Years Strong</div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

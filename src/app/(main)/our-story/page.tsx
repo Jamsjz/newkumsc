@@ -14,7 +14,7 @@ const OurStory: React.FC = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="">
       <HeroSection
         title="Our Story"
         description="Eight years of mathematical excellence, community building, and inspiring the next generation of mathematicians at Kathmandu University."

@@ -93,7 +93,7 @@ const CallToAction: React.FC = () => {
 
 							{/* Newsletter Signup */}
 							<div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl">
-								<h3 className="text-2xl font-bold text-white mb-4">Stay Updated</h3>
+								<h3 className="text-2xl font-bold text-white mb-4" id="bismaya">Stay Updated</h3>
 								<p className="text-[#6b8891] mb-6">
 									Get the latest news about events, competitions, and club activities delivered to your inbox.
 								</p>

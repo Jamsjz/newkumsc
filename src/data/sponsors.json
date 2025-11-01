@@ -73,16 +73,26 @@
       ]
     },
     {
-      "name": "Equipment Sponsor",
+      "name": "Equipment Sponsor-Tier 1",
       "price": "Market Value: NPR 10,000+",
       "color": "bg-gradient-to-r from-blue-600 to-blue-400",
       "textColor": "text-white",
       "benefits": [
-        "Equipment displays 'Provided by [Sponsor]' tags",
-        "Featured in 'Technology Partners' section on website (Tier 1: NPR 50,000+)",
-        "Photos of equipment in use shared on social media",
-        "Benefits tier based on equipment market value",
-        "Special recognition for computing hardware, cameras, and AV equipment"
+        "All Silver Partner benefits",
+        "Equipment will display ’Provided by [Sponsor]’ tags",
+        "Featured in special ’Technology Partners’ section on website",
+        "Photos of equipment in use shared on social media"
+      ]
+    },
+    {
+      "name": "Equipment Sponsor-Tier 2",
+      "price": "Market Value: NPR 10,000+",
+      "color": "bg-gradient-to-r from-blue-600 to-blue-400",
+      "textColor": "text-white",
+      "benefits": [
+        "All Bronze Partner benefits",
+        "’Provided by [Sponsor]’ acknowledgment",
+        "Photos of equipment in use shared on social media"
       ]
     },
     {
