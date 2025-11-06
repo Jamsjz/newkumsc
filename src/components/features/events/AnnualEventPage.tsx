@@ -5,7 +5,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import SubEventCard from './SubEventCard';
-import InfinityCanvas from './InfinityCanvas';
 
 interface SubEvent {
   title: string;
@@ -73,7 +72,7 @@ const AnnualEventPage: React.FC<AnnualEventPageProps> = ({ title, description, e
               height: `${Math.random() * 50 + 20}px`,
             }}
           >
-            <InfinityCanvas scale={0.1} />
+            <div className="w-full h-full bg-white rounded-full" />
           </motion.div>
         ))}
 
@@ -85,7 +84,7 @@ const AnnualEventPage: React.FC<AnnualEventPageProps> = ({ title, description, e
         >
           <div className="flex justify-center items-center mb-4">
             <div className="w-48 h-48 bg-white rounded-full p-4 flex items-center justify-center">
-              <InfinityCanvas scale={0.2} />
+              <div className="w-32 h-32 bg-gray-900 rounded-full" />
             </div>
           </div>
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight drop-shadow-lg">{title}</h1>

@@ -1,9 +1,5 @@
-
-
-
 import { EventBanner } from "@/components/features/home/EventBanner";
-import Hero from "@/components/features/home/Hero";
-import QuickStats from "@/components/features/home/QuickStats";
+import Hero from '@/components/features/home/Hero';
 
 
 
@@ -18,16 +14,16 @@ import CallToAction from "@/components/features/home/CallToAction";
 
 export default function HomePage() {
 	const allEvents = getAllFrontMatter("events").sort((a, b) => new Date(a.from || a.date).getTime() - new Date(b.from || b.date).getTime());
-	const now = new Date().setHours(0,0,0,0); // Get today's date at midnight for comparison
+	const now = new Date().setHours(0, 0, 0, 0); // Get today's date at midnight for comparison
 
 	const futureEvents = allEvents.filter(event => {
 		const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
 		return eventEndDate.getTime() >= now;
-	  });
+	});
 	const pastEvents = allEvents.filter(event => {
 		const eventEndDate = event.to ? new Date(event.to) : new Date(event.date);
 		return eventEndDate.getTime() < now;
-	  });
+	});
 
 	// Map future events for UpcomingEvents component
 	const upcomingEventsForComponent = futureEvents.slice(0, 4).map(event => ({
@@ -39,7 +35,7 @@ export default function HomePage() {
 		maxAttendees: event.maxAttendees || 0,
 		speaker: event.speaker || "N/A",
 		featured: event.featured || false,
-		
+
 		registrationOpen: event.registrationOpen || false,
 		price: event.price || "Free",
 		prerequisites: event.prerequisites || "N/A",
@@ -75,7 +71,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			
+
 			<CallToAction />
 		</main>
 	);

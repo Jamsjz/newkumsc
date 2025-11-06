@@ -23,18 +23,19 @@ const highlights = [
 
 const Highlights: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-900 text-white">
+    <section className="py-20 bg-white text-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Event Highlights</h2>
+        <p className="text-lg text-center my-4">Welcome to Infinity, our annual flagship event. Join us for a series of exciting events, workshops, and competitions.</p>
         <div className="grid md:grid-cols-3 gap-8">
           {highlights.map((highlight, index) => (
-            <Card key={index} className="bg-gray-800 border-gray-700 shadow-lg hover:shadow-yellow-400/20 transform hover:-translate-y-2 transition-all duration-300">
+            <Card key={index} className="bg-gray-100 border-gray-300 shadow-lg hover:shadow-yellow-400/20 transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader className="flex flex-col items-center text-center">
                 {highlight.icon}
-                <CardTitle className="mt-4 text-2xl font-bold">{highlight.title}</CardTitle>
+                <CardTitle className="mt-4 text-2xl font-bold text-gray-800">{highlight.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-400">{highlight.description}</p>
+                <p className="text-gray-600">{highlight.description}</p>
               </CardContent>
             </Card>
           ))}

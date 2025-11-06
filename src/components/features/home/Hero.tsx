@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { Users, Calendar, Trophy, BookOpen } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Users, Calendar } from 'lucide-react';
 import clubData from '@/data/clubInfo.json';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Hero: React.FC = () => {

@@ -37,12 +37,12 @@ const getStatusIcon = (status: string) => {
 
 const PlannedEvents: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-800 text-white">
+    <section className="py-20 bg-white text-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Planned Events</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
-            <div key={index} className="flex items-center p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-300">
+            <div key={index} className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300">
               <div className="mr-4">{getStatusIcon(event.status)}</div>
               <h3 className="text-lg font-medium">{event.name}</h3>
             </div>
