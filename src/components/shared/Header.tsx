@@ -42,16 +42,8 @@ const Header: React.FC<HeaderProps> = ({ searchData }) => {
 
   const navigation = [
     { name: 'Home', path: '/' },
-    {
-      name: 'Events',
-      path: '/events',
-      sublinks: [
-        { name: 'All Events', path: '/events' },
-        { name: 'Infinity', path: '/event/infinity' },
-        { name: 'Codewave', path: '/event/codewave' },
-        { name: 'Olympiad', path: '/event/olympiad' },
-      ],
-    },
+    { name: 'Events', path: '/events', sublinks: [ { name: 'All Events', path: '/events' }, { name: 'Infinity', path: '/event/infinity' }, { name: 'Codewave', path: '/event/codewave' }, { name: 'Olympiad', path: '/event/olympiad' } ] },
+    { name: 'Infinity', path: '/infinity' },
     { name: 'Notices', path: '/notices' },
     // { name: 'Gallery', path: '/gallery' },
     { name: 'Committee', path: '/committee' },
